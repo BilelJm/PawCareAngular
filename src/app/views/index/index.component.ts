@@ -8,7 +8,7 @@ import { Component, OnInit } from "@angular/core";
       #hero {
         height: 100vh;
         width: 100vw;
-        background: url(assets/img/hero-bg.png);
+        background: url(/../../assets/img/hero-bg.png);
         background-size: cover;
         position: relative;
       }

@@ -19,6 +19,16 @@ import { RegisterComponent } from "./views/auth/register/register.component";
 import { IndexComponent } from "./views/index/index.component";
 import { LandingComponent } from "./views/landing/landing.component";
 import { ProfileComponent } from "./views/profile/profile.component";
+import { PetListComponent } from "./views/admin/apt/back/pet/pet-list/pet-list.component";
+import { PetAddComponent } from "./views/admin/apt/back/pet/pet-add/pet-add.component";
+import { PetUpdateComponent } from "./views/admin/apt/back/pet/pet-update/pet-update.component";
+import { AppointmentListComponent } from "./views/admin/apt/back/appointment/appointment-list/appointment-list.component";
+import { AppointmentAddComponent } from "./views/admin/apt/back/appointment/appointment-add/appointment-add.component";
+import { AppointmentUpdateComponent } from "./views/admin/apt/back/appointment/appointment-update/appointment-update.component";
+import { CalendrierComponent } from "./views/apt/front/calendrier/calendrier.component";
+import { ListPetsComponent } from "./views/apt/front/pet/list-pets/list-pets.component";
+import { AddPetComponent } from "./views/apt/front/pet/add-pet/add-pet.component";
+import { UpdatePetComponent } from "./views/apt/front/pet/update-pet/update-pet.component";
 
 const routes: Routes = [
   // admin views
@@ -30,6 +40,18 @@ const routes: Routes = [
       { path: "settings", component: SettingsComponent },
       { path: "tables", component: TablesComponent },
       { path: "maps", component: MapsComponent },
+
+      //Appointment-Management
+
+      { path: "appointment", component: AppointmentListComponent},
+      { path: "add-appointment", component: AppointmentAddComponent},
+      { path: "update-appointment/:id", component: AppointmentUpdateComponent},
+
+
+      { path: "pet", component: PetListComponent},
+      { path: "add-pet", component: PetAddComponent},
+      {path:"update-pet/:id",component:PetUpdateComponent},
+
       { path: "", redirectTo: "dashboard", pathMatch: "full" },
     ],
   },
@@ -46,8 +68,24 @@ const routes: Routes = [
   // no layout views
   { path: "profile", component: ProfileComponent },
   { path: "landing", component: LandingComponent },
+
+  //calendrier
+  { path: 'calendrier', component: CalendrierComponent },
+
+  //petProfile
+  { path: 'pet', component: ListPetsComponent },
+  { path: 'pet/add', component: AddPetComponent },
+  {path:"pet/update-pet/:id",component:UpdatePetComponent},
+
+  
+
+
   { path: "", component: IndexComponent },
   { path: "**", redirectTo: "", pathMatch: "full" },
+
+  
+
+
 ];
 
 @NgModule({

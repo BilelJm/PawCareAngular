@@ -1,0 +1,62 @@
+<div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded"
+  [ngClass]="color === 'light' ? 'bg-white' : 'bg-red-900 text-white'">
+  <div class="rounded-t mb-0 px-4 py-3 border-0">
+    <div class="flex flex-wrap items-center">
+      <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+        <h3 class="font-semibold text-lg" [ngClass]="color === 'light' ? 'text-blueGray-700' : 'text-white'">
+          Pets
+          <p class="card-category">
+          </p>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="block w-full overflow-x-auto">
+    <div class="table-responsive p-4">
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group mb-4">
+          <label class="input-label">Name</label>
+          <input type="text" class="form-control" id="name" [(ngModel)]="pet.name" name="name">
+        </div>
+        <div class="form-group mb-4">
+          <label class="input-label">Gender</label>
+          <label class="switch ml-2">
+            <input class="switch-input" id="gender" name="gender" type="checkbox" [(ngModel)]="pet.gender" />
+            <span class="switch-label" data-on="Male" data-off="Female"></span>
+            <span class="switch-handle"></span>
+          </label>
+        </div>
+        <div class="form-group mb-4">
+          <label class="input-label">Weight</label>
+          <input type="text" class="form-control" id="weight" [(ngModel)]="pet.weight" name="weight">
+        </div>
+
+        <div class="form-group mb-4">
+          <label class="input-label">Specie</label>
+          <input type="text" class="form-control" id="specie" [(ngModel)]="pet.specie" name="specie">
+        </div>
+        <div class="form-group mb-4">
+          <label class="input-label">Color</label>
+          <input type="text" class="form-control" id="color" [(ngModel)]="pet.color" name="color">
+        </div>
+
+
+
+        <div class="fileinput">
+          <label class="input-label">Picture</label>
+          <input type="file" class="form-control" id="picture" [(ngModel)]="pet.picture" name="picture">
+        </div>
+        <div class="form-group mb-4">
+          <label class="input-label" for="reason">Situation</label>
+          <select class="form-select" id="reason" name="reason" [(ngModel)]="pet.situation">
+            <option value="Vaccinated">Vaccinated</option>
+            <option value="Unvaccinated">Unvaccinated</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
