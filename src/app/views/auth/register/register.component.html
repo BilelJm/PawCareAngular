@@ -222,6 +222,7 @@
                       Create Account
                     </button>
                   </div>
+
           
                   <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
                     Signup failed!<br />{{ errorMessage }}
@@ -232,6 +233,14 @@
           
                 <div class="alert alert-success" *ngIf="isSuccessful">
                   Your registration is successful!
+                </div>
+                <div class="flex flex-wrap mt-6">
+                  <div class="w-1/2 text-right">
+                  <div class="w-1/2 text-right">
+                    <a href="#pablo" class="text-blueGray-200">
+                      <small>Create new account</small>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

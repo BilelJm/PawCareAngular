@@ -1,0 +1,43 @@
+import { Component, Input, OnInit } from '@angular/core';
+import { UserapiService } from '../_service/userapi.service';
+import { User } from '../_service/user';
+import { Role } from '../_service/role';
+
+
+@Component({
+  selector: 'app-user-list',
+  templateUrl: './user-list.component.html',
+  styleUrls: ['./user-list.component.css']
+})
+export class UserListComponent implements OnInit {
+
+  @Input()
+  get color(): string {
+    return this._color;
+  }
+  set color(color: string) {
+    this._color = color !== "light" && color !== "dark" ? "light" : color;
+  }
+  private _color = "light";
+  users: User[];
+
+
+
+  constructor( private userapiService: UserapiService) { }
+
+  ngOnInit() {
+
+    this.userapiService.getAllUsers().subscribe(users => {
+      this.users = users;
+      console.log(this.users);
+    });
+  }
+  deleteUser(userId: number): void {
+    this.userapiService.deleteUser(userId)
+      .subscribe(() => {
+        this.users = this.users.filter(user => user.id !== userId);
+      });
+  }
+
+
+}
