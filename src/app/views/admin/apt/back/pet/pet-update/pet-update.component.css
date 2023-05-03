@@ -234,3 +234,17 @@
 .form-group {
   margin-bottom: 1.5rem;}
   
+  .submit-button {
+    background-color: #28a745;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+  }
+  
+  .submit-button:disabled {
+    background-color: #aaaaaa;
+    cursor: not-allowed;
+  }

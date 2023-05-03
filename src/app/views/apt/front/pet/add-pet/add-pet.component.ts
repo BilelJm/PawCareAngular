@@ -30,19 +30,30 @@ export class AddPetComponent implements OnInit {
     this.router.navigate(['/calendrier']);
   }
   
-  onSubmit(){
-   
-    console.log(this.pet);
-   
+  onSubmit() {
+    if (this.isFormValid()) {
       if (this.pet.gender) {
-          this.pet.gender = "Male";
+        this.pet.gender = "Male";
       } else {
-          this.pet.gender = "Female";
+        this.pet.gender = "Female";
       }
       // send the pet data to the database
-  
-  
-    this.savePet();
+      this.savePet();
+    } else {
+      alert("Please fill all the fields before submitting.");
+    }
   }
+  
+  isFormValid(): boolean {
+    return !!(
+      this.pet.name &&
+      this.pet.specie &&
+      this.pet.color &&
+      this.pet.weight &&
+      this.pet.picture
+    );
+  }
+  
+  
 
 }

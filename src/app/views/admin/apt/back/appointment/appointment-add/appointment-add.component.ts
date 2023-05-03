@@ -63,7 +63,9 @@ export class AppointmentAddComponent implements OnInit {
   private getAllDoctors()
   {
     this.userService.getAllDoctors().subscribe(data=> {
+      
       this.users=data;
+      console.log(this.users);
     });
   }
   

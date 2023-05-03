@@ -27,6 +27,7 @@ export class UpdatePetComponent {
   }
 
   onSubmit(){
+    if (this.isFormValid()) {
     this.pet.gender = this.isMale ? 'Male' : 'Female';
        this.petService.updatePet(this.id, this.pet).subscribe( data =>{
       this.goToPetList();
@@ -34,7 +35,19 @@ export class UpdatePetComponent {
     error => {
       console.log(error);
     });
+  } else {
+    alert("Please fill all the fields before submitting.");
   }
+}
+isFormValid(): boolean {
+  return !!(
+    this.pet.name &&
+    this.pet.specie &&
+    this.pet.color &&
+    this.pet.weight &&
+    this.pet.picture
+  );
+}
 
   goToPetList(){
     this.router.navigate(['/pet']);

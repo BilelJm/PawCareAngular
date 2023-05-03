@@ -13,31 +13,34 @@
     </div>
     <div class="block w-full overflow-x-auto">
         <div class="table-responsive p-4">
-            <form (ngSubmit)="onSubmit()">
+            <form #appointmentForm="ngForm" (ngSubmit)="onSubmit()">
                 <div class="form-group mb-4">
                     <label class="input-label">Start Date</label>
                     <input type="datetime-local" class="form-control" id="startDate" [(ngModel)]="appointment.startDate"
-                        name="startDate">
+                        name="startDate" required="">
                 </div>
 
                 <div class="form-group mb-4">
                     <label class="input-label">End Date</label>
                     <input type="datetime-local" class="form-control" id="endDate" [(ngModel)]="appointment.endDate"
-                        name="endDate">
+                        name="endDate" required="">
                 </div>
 
                 <div class="form-group mb-4">
                     <label class="input-label" for="reason">Reason</label>
-                    <select class="form-select" id="reason" name="reason" [(ngModel)]="appointment.reason">
+                    <select class="form-select" id="reason" name="reason" [(ngModel)]="appointment.reason" required>
                         <option value="RoutineCheckup">RoutineCheckup</option>
                         <option value="Vaccination">Vaccination</option>
                         <option value="Surgery">Surgery</option>
+                         <option value="Adoption">Adoption</option>
+                        <option value="Adoption">Training</option>
+                        <option value="Adoption">Hotel_Reservation</option>
                     </select>
                 </div>
 
                 <div class="form-group mb-4">
                     <label class="input-label" for="location">Location</label>
-                    <select class="form-select" id="location" name="location" [(ngModel)]="appointment.location">
+                    <select class="form-select" id="location" name="location" [(ngModel)]="appointment.location" required>
                         <option value="Locally">Locally</option>
                         <option value="VeterinaryOffice">VeterinaryOffice</option>
                     </select>
@@ -52,13 +55,14 @@
                        
                 <div class="form-group mb-4">
                 <label class="input-label">Price</label>
-                <input type="number" class="form-control" id="prix" [(ngModel)]="appointment.prix" name="prix">
+                <input type="text" class="form-control" id="prix" [(ngModel)]="appointment.prix"oninput="this.value = this.value.replace(/[^0-9.,]/g, '')"
+                name="prix">
                 </div>
 
                 <div class="form-group mb-4">
 
                     <label class="input-label">Pet</label>
-                    <select class="form-select" id="pet" name="pet" [(ngModel)]="appointment.pet.idPet">
+                    <select class="form-select" id="pet" name="pet" [(ngModel)]="appointment.pet.idPet" required>
                         <option *ngFor = "let pet of pets" value="{{pet.idPet}}">{{pet.name}}</option>
                     </select>
 
@@ -69,15 +73,19 @@
                         <label for="pet">Doctor</label>
                         <select class="form-select" id="doctor" name="doctor" [(ngModel)]="appointment.doctor.id">
                             <option *ngFor = "let user of users" value="{{user.id}}">{{user.username}}</option>
+                            <option value=""></option>
                         </select>
 
                     </div>
 
 
 
-                <div class="form-group">
-                <button type="submit" class="btn btn-success">Submit</button>
-                </div>
+                    <div *ngIf="appointmentForm.valid">
+                        <button type="submit" class="btn submit-button">Submit</button>
+                      </div>
+                      <div *ngIf="!appointmentForm.valid">
+                        <button type="button" class="btn submit-button" disabled>Submit</button>
+                      </div>
         </form>
     </div>
 </div>

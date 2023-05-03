@@ -5,7 +5,7 @@
 	<div class="form-group">
 	  <label for="name">Name:</label>
 	  <div class="relative">
-		<input class="form-control" id="name" name="name" [(ngModel)]="pet.name" type="text" pattern="[a-zA-Z\s]+" required="" autofocus="" title="Pet name should only contain letters. e.g. Buddy" autocomplete="" placeholder="Type your pet's name here...">
+		<input class="form-control" id="name" name="name" [(ngModel)]="pet.name" type="text" pattern="[a-zA-Z\s]+" autofocus="" title="Pet name should only contain letters. e.g. Buddy" autocomplete="" placeholder="Type your pet's name here..." required>
 		<i class="fa fa-dog"></i>
 	  </div>
 	</div>
@@ -29,7 +29,7 @@
 	<div class="form-group">
 	  <label for="weight">Weight:</label>
 	  <div class="relative">
-		<input class="form-control" id="weight" name="weight" [(ngModel)]="pet.weight" type="text" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required="" placeholder="Type your pet's weight...">
+		<input class="form-control" id="weight" name="weight" [(ngModel)]="pet.weight" type="text" maxlength="10" oninput="this.value = this.value.replace(/[^0-9.,]/g, '')" required="" placeholder="Type your pet's weight...">
 		<i class="fa fa-weight-hanging"></i>
 	  </div>
 	</div>

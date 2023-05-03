@@ -131,6 +131,9 @@ export class CalendrierComponent implements OnInit {
           'RoutineCheckup',
           'Vaccination',
           'Surgery',
+          'Adoption',
+          'Training',
+          'Hotel_Reservation',
         ],
         value: args.data ? args.data['Subject'] as string : 'RoutineCheckup', // Set the default value to "RoutineCheckup" if no appointment data is available
         placeholder: 'Choose an option', // Set the placeholder text

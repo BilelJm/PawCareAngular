@@ -41,6 +41,9 @@ export class AppointmentUpdateComponent implements OnInit {
 
     this.appointmentService.getAppointmentById(this.id).subscribe(data => {
       this.appointment = data;
+      if (this.appointment.doctor === null) {
+        this.appointment.doctor = new User();
+      }
     });
   }
 
@@ -58,7 +61,6 @@ export class AppointmentUpdateComponent implements OnInit {
 
   }
 
-
   goToAppointmentList(){
     this.router.navigate(['/admin/appointment']);
   }
@@ -72,6 +74,7 @@ export class AppointmentUpdateComponent implements OnInit {
   {
     this.userService.getAllDoctors().subscribe(data=> {
       this.users=data;
+      console.log(data);
     });
   }
   
