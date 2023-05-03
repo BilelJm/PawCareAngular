@@ -1,8 +1,9 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { InjectionToken, NgModule } from "@angular/core";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+
 
 // layouts
 import { AdminComponent } from "./layouts/admin/admin.component";
@@ -47,6 +48,23 @@ import { PagesDropdownComponent } from "./components/dropdowns/pages-dropdown/pa
 import { NotificationDropdownComponent } from "./components/dropdowns/notification-dropdown/notification-dropdown.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user-dropdown.component";
+import { ArticleListComponent } from './views/admin/article/article-list/article-list.component';
+import { ArticleCreateComponent } from './views/admin/article/article-create/article-create.component';
+import { ArticleUpdateComponent } from './views/admin/article/article-update/article-update.component';
+import { ArticleDeleteComponent } from './views/admin/article/article-delete/article-delete.component';
+import { ArticleDetailsComponent } from './views/admin/article/article-details/article-details.component';
+import { CommentListComponent } from './views/admin/comment/comment-list/comment-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { CreateArticleComponent } from './views/article-front/create-article/create-article.component';
+import { ListArticleComponent } from './views/article-front/list-article/list-article.component';
+import { DeleteArticleComponent } from './views/article-front/delete-article/delete-article.component';
+import { UpdateArticleComponent } from './views/article-front/update-article/update-article.component';
+
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -84,8 +102,21 @@ import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user
     IndexComponent,
     LandingComponent,
     ProfileComponent,
+    ArticleListComponent,
+    ArticleCreateComponent,
+    ArticleUpdateComponent,
+    ArticleDeleteComponent,
+    ArticleDetailsComponent,
+    CommentListComponent,
+    CreateArticleComponent,
+    ListArticleComponent,
+    DeleteArticleComponent,
+    UpdateArticleComponent,
+    
+    
+    
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [FormsModule, BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

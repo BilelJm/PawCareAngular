@@ -11,6 +11,7 @@ import { MapsComponent } from "./views/admin/maps/maps.component";
 import { SettingsComponent } from "./views/admin/settings/settings.component";
 import { TablesComponent } from "./views/admin/tables/tables.component";
 
+
 // auth views
 import { LoginComponent } from "./views/auth/login/login.component";
 import { RegisterComponent } from "./views/auth/register/register.component";
@@ -19,8 +20,18 @@ import { RegisterComponent } from "./views/auth/register/register.component";
 import { IndexComponent } from "./views/index/index.component";
 import { LandingComponent } from "./views/landing/landing.component";
 import { ProfileComponent } from "./views/profile/profile.component";
+import { ArticleListComponent } from "./views/admin/article/article-list/article-list.component";
+import { ArticleCreateComponent } from "./views/admin/article/article-create/article-create.component";
+import { ArticleUpdateComponent } from "./views/admin/article/article-update/article-update.component";
+import { ArticleDetailsComponent } from "./views/admin/article/article-details/article-details.component";
+import { CommentListComponent } from "./views/admin/comment/comment-list/comment-list.component";
+import { ListArticleComponent } from "./views/article-front/list-article/list-article.component";
+
 
 const routes: Routes = [
+
+  { path: 'list-article', component: ListArticleComponent },
+
   // admin views
   {
     path: "admin",
@@ -31,6 +42,15 @@ const routes: Routes = [
       { path: "tables", component: TablesComponent },
       { path: "maps", component: MapsComponent },
       { path: "", redirectTo: "dashboard", pathMatch: "full" },
+      
+      
+      //Articles
+      { path: 'article-list',        component: ArticleListComponent },
+      { path: 'article-create',        component: ArticleCreateComponent },
+      { path: 'article-update/:id',        component: ArticleUpdateComponent },
+      { path: 'article-details/:id',        component: ArticleDetailsComponent },
+      { path: 'comment-list',        component: CommentListComponent }
+
     ],
   },
   // auth views
@@ -48,6 +68,8 @@ const routes: Routes = [
   { path: "landing", component: LandingComponent },
   { path: "", component: IndexComponent },
   { path: "**", redirectTo: "", pathMatch: "full" },
+
+  
 ];
 
 @NgModule({

@@ -1,0 +1,68 @@
+<body class="body">
+<app-index-navbar style="margin-top: 200px;"></app-index-navbar>
+<div style="padding-top: 100px;">
+<!-- discussion-forum.component.html -->
+<div class="back-button" style="padding-top: 100px;">
+  <button routerLink="" class="home-button" >
+    Back to Home
+  </button>
+</div>
+
+<div class="discussion-forum">
+  <div class="forum-header">
+    <h1>DISCUSSION FORM</h1>
+  </div>
+  
+  
+  <div class="forum-body">
+    <div class="forum-posts">
+      <div class="post" *ngFor="let article of articles">
+        <h3 style="color: aliceblue;">Title: {{ article.title }}</h3>
+        <p style="color: aliceblue;">Content: {{ article.content }}</p>
+        <img style="width: 60px;height: 60px;" [src]="article.imageUrl" alt="{{ article.title }}">
+        <h4>Number of Likes: {{article.nblike}}</h4>
+        <h4>Number of Dislikes: {{article.nbdislike}}</h4>
+        <h4>Number of Comments: {{article.nbcomments}}</h4>
+        <h4>Tags: {{article.tags}}</h4>
+        <div>
+          <label><b style="color: brown;">Comments: </b></label> <ul>
+              <li *ngFor="let comment of comment">
+                  <p>{{ comment.content }}</p>
+              </li>
+          </ul>
+      </div> 
+        <div class="post-footer">
+          <button type="button" (click)="deleteArticle(article.id)">Delete</button>
+        </div>
+      </div>
+    </div>
+    <div class="new-post">
+      <h3>New Post</h3>
+      <form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+        <div class="form-group mb-4">
+          <label class="input-label">Title</label>
+          <input type="text" class="form-control" id="title" [(ngModel)]="Articles.title" name="title">
+        </div>
+        <div class="form-group mb-4">
+            <label class="input-label">Content</label>
+            <input type="textarea" class="form-control" id="content" [(ngModel)]="Articles.content" name="content">
+          </div>
+        <div class="form-group mb-4">
+          <label class="input-label">Media</label>
+          <input type="file" id="imageFile" name="imageFile" (change)="handleFileInput($event.target.files)">
+        </div>
+
+        <div class="form-group mb-4">
+          <label class="input-label">Tags</label>
+          <input type="text" class="form-control" id="tags" [(ngModel)]="Articles.tags" name="tags">
+        </div>
+       
+        <div class="form-group">
+          <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+</body>
