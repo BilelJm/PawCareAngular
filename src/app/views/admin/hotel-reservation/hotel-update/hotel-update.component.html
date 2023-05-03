@@ -1,0 +1,42 @@
+<div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded"
+    [ngClass]="color === 'light' ? 'bg-white' : 'bg-red-900 text-white'">
+    <div class="rounded-t mb-0 px-4 py-3 border-0">
+        <div class="flex flex-wrap items-center">
+            <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+                <h3 class="font-semibold text-lg" [ngClass]="color === 'light' ? 'text-blueGray-700' : 'text-white'">
+                    Hotel Update
+                    <p class="card-category">
+                    </p>
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="block w-full overflow-x-auto">
+        <div class="table-responsive p-4">
+            <form (ngSubmit)="onSubmit()">
+                <div class="form-group mb-4">
+                    <label class="input-label">Hotel name</label>
+                    <input type="text" class="form-control" id="nomHotel" [(ngModel)]="hotels.nomHotel
+                        " name="nomHotel">
+                </div>
+
+                <div class="form-group mb-4">
+                    <label class="input-label">Adresse</label>
+                    <input type="text" class="form-control" id="Adresse" [(ngModel)]="hotels.address" name="address">
+                </div>
+
+                <div class="form-group mb-4">
+                    <label class="input-label" for="reason">Phone Number</label>
+                    <input type="text" class="form-control" id="numtel" [(ngModel)]="hotels.numtel" name="numtel">
+                </div>
+
+                
+
+
+
+                <div class="form-group">
+                <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+        </form>
+    </div>
+</div>

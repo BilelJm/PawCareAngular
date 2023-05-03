@@ -13,6 +13,7 @@ import { DashboardComponent } from "./views/admin/dashboard/dashboard.component"
 import { MapsComponent } from "./views/admin/maps/maps.component";
 import { SettingsComponent } from "./views/admin/settings/settings.component";
 import { TablesComponent } from "./views/admin/tables/tables.component";
+import { FormsModule } from "@angular/forms";
 
 // auth views
 import { LoginComponent } from "./views/auth/login/login.component";
@@ -47,6 +48,11 @@ import { PagesDropdownComponent } from "./components/dropdowns/pages-dropdown/pa
 import { NotificationDropdownComponent } from "./components/dropdowns/notification-dropdown/notification-dropdown.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user-dropdown.component";
+import { HotelComponent } from './views/admin/hotel-reservation/hotel/hotel.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CreateHotelComponent } from './views/admin/hotel-reservation/hotel-add/create-hotel/create-hotel.component';
+import { HotelUpdateComponent } from './views/admin/hotel-reservation/hotel-update/hotel-update.component';
+import { ResListComponent } from './views/admin/hotel-reservation/res-list/res-list.component';
 
 @NgModule({
   declarations: [
@@ -84,8 +90,13 @@ import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user
     IndexComponent,
     LandingComponent,
     ProfileComponent,
+    HotelComponent,
+    CreateHotelComponent,
+    HotelUpdateComponent,
+    ResListComponent,
+    
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
