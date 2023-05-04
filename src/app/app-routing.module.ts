@@ -23,6 +23,8 @@ import { LandingComponent } from "./views/landing/landing.component";
 import { ProfileComponent } from "./views/profile/profile.component";
 import { HotelUpdateComponent } from "./views/admin/hotel-reservation/hotel-update/hotel-update.component";
 import { ResListComponent } from "./views/admin/hotel-reservation/res-list/res-list.component";
+import { CreateResComponent } from "./views/admin/hotel-reservation/create-res/create-res.component";
+import { UpdateResComponent } from "./views/admin/hotel-reservation/update-res/update-res.component";
 
 const routes: Routes = [
   // admin views
@@ -38,6 +40,8 @@ const routes: Routes = [
       { path: "hotel-add",component: CreateHotelComponent},
       { path: "hotel-update/:id",component: HotelUpdateComponent},
       { path: "res-list",component: ResListComponent},
+      { path: "res-create", component: CreateResComponent},
+      { path: "res-update/:id", component: UpdateResComponent},
       { path: "", redirectTo: "dashboard", pathMatch: "full" },
     ],
   },

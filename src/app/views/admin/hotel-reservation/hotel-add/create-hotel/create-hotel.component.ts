@@ -33,7 +33,7 @@ export class CreateHotelComponent implements OnInit {
   }
   selectedFile: File;
 
-*
+
 
   gotoHotellist(){
     this.router.navigate(['/admin/hotel-res']);

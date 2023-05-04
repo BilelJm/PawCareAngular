@@ -1,0 +1,45 @@
+<div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded"
+    [ngClass]="color === 'light' ? 'bg-white' : 'bg-red-900 text-white'">
+    <div class="rounded-t mb-0 px-4 py-3 border-0">
+        <div class="flex flex-wrap items-center">
+            <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+                <h3 class="font-semibold text-lg" [ngClass]="color === 'light' ? 'text-blueGray-700' : 'text-white'">
+                    Reservations
+                    <p class="card-category">
+                    </p>
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="block w-full overflow-x-auto">
+        <div class="table-responsive p-4">
+            <form (ngSubmit)="onSubmit()">
+                <div class="form-group mb-4">
+                    <label class="input-label">Check In</label>
+                    <input type="datetime-local" class="form-control" id="checkin" [(ngModel)]="reservation.checkin">
+                </div>
+
+                <div class="form-group mb-4">
+                    <label class="input-label">Check Out</label>
+                    <input type="datetime-local" class="form-control" id="checkout" [(ngModel)]="reservation.checkout">
+                </div>
+
+                <div class="form-group mb-4">
+                    <label class="input-label" for="specialrequest">Special Requests</label>
+                    <input type="textarea" class="form-control" id="specialrequest"[(ngModel)]="reservation.specialrequests ">
+                    
+                </div>
+
+                <div class="form-group mb-4">
+                    <label class="input-label" for="Status">Status</label>
+                    <select class="form-select" id="status" name="status" [(ngModel)]="reservation.status">
+                        <option value="Confirmed">Confirmed</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                <button type="submit" class="btn btn-success">add</button>
+                </div>
+        </form>
+    </div>
+</div>

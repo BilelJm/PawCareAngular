@@ -36,12 +36,18 @@ export class HotelUpdateComponent implements OnInit {
   }
   onSubmit(){
     
-    this.hotelservice.updateHotel(this.id,this.hotels).subscribe(data =>{
-      this.gotoHotellist
-    },
-    error =>console.log(error));
+    this.updateHotel();
+    this.gotoHotellist();
 
     
+  }
+
+  updateHotel(){
+    this.hotelservice.updateHotel(this.id,this.hotels).subscribe(data =>{
+      console.log(this.hotels);
+      console.log(data);
+      }),
+      error => console.log(error);
   }
 
   gotoHotellist(){

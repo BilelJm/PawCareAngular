@@ -53,6 +53,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateHotelComponent } from './views/admin/hotel-reservation/hotel-add/create-hotel/create-hotel.component';
 import { HotelUpdateComponent } from './views/admin/hotel-reservation/hotel-update/hotel-update.component';
 import { ResListComponent } from './views/admin/hotel-reservation/res-list/res-list.component';
+import { CreateResComponent } from './views/admin/hotel-reservation/create-res/create-res.component';
+import { UpdateResComponent } from './views/admin/hotel-reservation/update-res/update-res.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +96,8 @@ import { ResListComponent } from './views/admin/hotel-reservation/res-list/res-l
     CreateHotelComponent,
     HotelUpdateComponent,
     ResListComponent,
+    CreateResComponent,
+    UpdateResComponent,
     
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],

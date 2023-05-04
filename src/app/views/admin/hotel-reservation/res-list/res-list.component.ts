@@ -25,9 +25,21 @@ export class ResListComponent implements OnInit {
   ngOnInit(): void {
     this.getreservation();
   }
-  private getreservation(){
-    this.resservice.getHotellist().subscribe(data => {this.reservations=data;});
-    
+   getreservation(){
+    this.resservice.getreservationlist().subscribe(data => {this.reservations=data;
+    console.log(data)});
+  }
+  deleteReservation(id: number){
+    this.resservice.deleteReservation(id).subscribe( data => {
+      console.log(data);
+      this.getreservation();
+    },
+    error => console.log(error));
+  
+  }
+
+  updateReservation(id: number){
+    this.router.navigate(['/admin/res-update', id]);
   }
 
 }

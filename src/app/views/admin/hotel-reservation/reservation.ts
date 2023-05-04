@@ -1,9 +1,9 @@
 export class Reservation {
-    resvationid: any;
+    reservationid: any;
     qrcode: any;
     checkin: any;
     checkout: any;
-    specialrequest: any;
+    specialrequests: any;
     status:any;
     
 }

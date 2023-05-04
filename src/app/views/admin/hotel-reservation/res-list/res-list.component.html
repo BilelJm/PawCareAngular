@@ -108,7 +108,7 @@
               class="ml-3 font-bold"
               [ngClass]="color === 'light' ? 'text-blueGray-600' : 'text-white'"
             >
-            {{ resva.resvationid }}
+            {{ resva.idReservation }}
             </span>
           </th>
           <td
@@ -125,40 +125,38 @@
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
           >
             <div class="flex">
-              {{ resva.specialrequest}}
+              {{ resva.specialrequests}}
             </div>
           </td>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
           >
             <div class="flex">
-              
+              {{ resva.status}}
             </div>
           </td>
           <td
             class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
           >
             <div class="flex">
-              
+              <img src="http://localhost/qr/{{resva.qrcode}}.jpg"  width="60" >
             </div>
           </td>
           
           
           <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
             <div class="flex space-x-4">
-              <button routerLink="/admin/hotel-add"
-                class="bg-pink-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                <i class="fas fa-plus"></i>
-              </button>
-              <button 
               
+              <button 
+              (click)="updateReservation(resva.idReservation)"
                 class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
                 <i class="fas fa-edit"></i>
               </button>
               <button 
-              
+              (click)="deleteReservation(resva.idReservation)"
                 class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                 <i class="fas fa-trash-alt"></i>
+                
               </button>
             </div>
           </td>
@@ -169,5 +167,23 @@
         
       </tbody>
     </table>
+    <div class="rounded-t mb-0 px-4 py-3 border-0">
+      <div class="flex flex-wrap items-center">
+        <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+          <h4
+          class="font-semibold text-lg"
+          [ngClass]="color === 'light' ? 'text-blueGray-700' : 'text-white'"
+        >
+          You want to add a Reservation?
+        </h4>
+        <button class="bg-pink-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "  routerLink="/admin/res-create">
+          <i class="fas fa-plus"></i>
+          
+        </button>
+          
+          
+        </div>
+      </div>
+    </div>
   </div>
 </div>
