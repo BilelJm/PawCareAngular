@@ -55,10 +55,7 @@ import { PetUpdateComponent } from './views/admin/apt/back/pet/pet-update/pet-up
 import { AppointmentListComponent } from './views/admin/apt/back/appointment/appointment-list/appointment-list.component';
 import { AppointmentAddComponent } from './views/admin/apt/back/appointment/appointment-add/appointment-add.component';
 import { AppointmentUpdateComponent } from './views/admin/apt/back/appointment/appointment-update/appointment-update.component';
-import {NgxPaginationModule} from 'ngx-pagination';
-import {Ng2OrderModule} from 'ng2-order-pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
 
 //Calendar
 import { ScheduleModule, RecurrenceEditorModule } from '@syncfusion/ej2-angular-schedule';
@@ -70,6 +67,11 @@ import { CalendrierComponent } from "./views/apt/front/calendrier/calendrier.com
 import { AddPetComponent } from "./views/apt/front/pet/add-pet/add-pet.component";
 import { ListPetsComponent } from "./views/apt/front/pet/list-pets/list-pets.component";
 import { UpdatePetComponent } from "./views/apt/front/pet/update-pet/update-pet.component";
+
+//External modules
+import {NgxPaginationModule} from 'ngx-pagination';
+import {Ng2OrderModule} from 'ng2-order-pipe';
+import { ToastrModule } from 'ngx-toastr';
 
 registerLicense('"Mgo+DSMBaFt+QHFqVkNrWU5FdUBAXWFKblJ0T2ZcdV15ZDU7a15RRnVfRlxgSH1Wd0VqUH5ccA==;Mgo+DSMBPh8sVXJ1S0d+X1RPc0BDXnxLflF1VWJbdVt1flZPcDwsT3RfQF5jTX9Qd0ZmWH9XeXZQRg==;ORg4AjUWIQA/Gnt2VFhhQlJBfVpdXGBWfFN0RnNYfVR1cV9FaUwxOX1dQl9gSXpSdURgXH5eeX1WTmA=;MTcxMzc5NkAzMjMxMmUzMTJlMzMzNW8wQlZ0cm9QcERrT3NTcFh6aXFyRDhRWDB1Rk8yL0tGTC9xVTBlWTF3TG89;MTcxMzc5N0AzMjMxMmUzMTJlMzMzNWJaL2xaQlRWZDNlM3N3c25uMzFxSGo3Y1BUaThoRDY2M1QxMFlCSWIwWTA9;NRAiBiAaIQQuGjN/V0d+XU9Hc1RHQmJKYVF2R2BJflx6cVBMY1VBJAtUQF1hSn5Xd0ZiWnpfcH1cT2lc;MTcxMzc5OUAzMjMxMmUzMTJlMzMzNVZsS2tXbEhZUmRScjVObEVRWGRmUXNheS84cWtTYlVabzRrSHEzRENtb0E9;MTcxMzgwMEAzMjMxMmUzMTJlMzMzNUVKRlowNG5lTE1jK2JrcEFzZW9DNDdJaTZYRSsxdkRsWmZUTjdOMFlhajg9;Mgo+DSMBMAY9C3t2VFhhQlJBfVpdXGBWfFN0RnNYfVR1cV9FaUwxOX1dQl9gSXpSdURgXH5fcHRTQmA=;MTcxMzgwMkAzMjMxMmUzMTJlMzMzNWd2Y0s5UExMVTR3bll1bWt3djhuTmF6Zk1KNWd5TmRjWmxBN0s0VytiYW89;MTcxMzgwM0AzMjMxMmUzMTJlMzMzNWJYYmJGVjY0MEhYMWY0cGhvQTJhdmhKOEpKY2lyT29jZFFMcE9YdTZaV1k9;MTcxMzgwNEAzMjMxMmUzMTJlMzMzNVZsS2tXbEhZUmRScjVObEVRWGRmUXNheS84cWtTYlVabzRrSHEzRENtb0E9');
 
@@ -122,14 +124,15 @@ registerLicense('"Mgo+DSMBaFt+QHFqVkNrWU5FdUBAXWFKblJ0T2ZcdV15ZDU7a15RRnVfRlxgSH
     ListPetsComponent,
     UpdatePetComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, ScheduleModule ,HttpClientModule,
+  imports: [BrowserModule, AppRoutingModule, ScheduleModule ,RecurrenceEditorModule,HttpClientModule,
   FormsModule, 
   DropDownListModule,
   DateTimePickerModule,
+  BrowserAnimationsModule,
   NgxPaginationModule,
   Ng2OrderModule,
-  BrowserAnimationsModule,
   ToastrModule.forRoot(),
+
 ],
   providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService],
   bootstrap: [AppComponent],

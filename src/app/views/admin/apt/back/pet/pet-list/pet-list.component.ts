@@ -85,9 +85,11 @@ export class PetListComponent implements OnInit {
     this.reverse = !this.reverse;
   }
   downloadGeneralLogs(): void {
-    const url = 'http://localhost:8080/generalLogs/download';
+    const url = 'http://localhost:8080/api/auth/generalLogs/download';
     this.http.post(url, null, { responseType: 'text' }).subscribe(response => {
       console.log(response);
+      this.toastr.success('Your file is ready.', 'Success');
+
     }, error => {
       console.log(error);
     });

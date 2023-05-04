@@ -24,6 +24,8 @@
       Add your first pet
     </a>
   </div>
+
+  
   
   <div class="block w-full overflow-x-auto">
 
@@ -153,16 +155,18 @@
                 <i class="fas fa-trash-alt"></i>
               </button>
             </div>
+           
           </td>
 
-
-
-
-
+        
 
         </tr>
       </tbody>
     </table>
+
+    <div class="text-right">
+      <button class="inline-flex items-center justify-center px-4 py-2 bg-red-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-400 active:bg-blue-600 focus:outline-none focus:border-blue-700 focus:ring focus:ring-blue-300 disabled:opacity-25 transition mr-4" (click)="downloadGeneralLogs()">Download Logs</button>
+    </div>
     <pagination-controls (pageChange)="p=$event"></pagination-controls>
 
   </div>
