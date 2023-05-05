@@ -20,6 +20,7 @@ import { IndexComponent } from "./views/index/index.component";
 import { LandingComponent } from "./views/landing/landing.component";
 import { ProfileComponent } from "./views/profile/profile.component";
 import { UserListComponent } from "./views/admin/users/user-list/user-list.component";
+import { UserUpdateComponent } from "./views/admin/users/user-update/user-update.component";
 
 const routes: Routes = [
   // admin views
@@ -32,6 +33,7 @@ const routes: Routes = [
       { path: "tables", component: TablesComponent },
       { path: "maps", component: MapsComponent },
       { path: "users", component: UserListComponent },
+      { path: "userupdate/:id", component: UserUpdateComponent },
       { path: "", redirectTo: "dashboard", pathMatch: "full" },
     ],
   },

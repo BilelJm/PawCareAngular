@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UserapiService } from '../_service/userapi.service';
 import { User } from '../_service/user';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Role } from '../_service/role';
 
 
@@ -23,7 +24,7 @@ export class UserListComponent implements OnInit {
 
 
 
-  constructor( private userapiService: UserapiService) { }
+  constructor( private userapiService: UserapiService, private router: Router) { }
 
   ngOnInit() {
 
@@ -31,6 +32,9 @@ export class UserListComponent implements OnInit {
       this.users = users;
       console.log(this.users);
     });
+  }
+  updateUser(id: number){
+    this.router.navigate(['/admin/userupdate', id]);
   }
   deleteUser(userId: number): void {
     this.userapiService.deleteUser(userId)

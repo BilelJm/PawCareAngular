@@ -50,6 +50,7 @@ import { NotificationDropdownComponent } from "./components/dropdowns/notificati
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user-dropdown.component";
 import { UserListComponent } from "./views/admin/users/user-list/user-list.component";
+import { UserUpdateComponent } from './views/admin/users/user-update/user-update.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,8 @@ import { UserListComponent } from "./views/admin/users/user-list/user-list.compo
     IndexComponent,
     LandingComponent,
     ProfileComponent,
-    UserListComponent
+    UserListComponent,
+    UserUpdateComponent
     
   ],
   imports: [BrowserModule, AppRoutingModule,FormsModule,

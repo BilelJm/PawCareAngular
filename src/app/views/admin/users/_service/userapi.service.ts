@@ -17,6 +17,9 @@ export class UserapiService {
   getAllUsers(): Observable<User[]>{
     return this.http.get<User[]>(`${this.baseUrl}/list`);
   }
+  getUserById(userId:number): Observable<User>{
+    return this.http.get<User>(`${this.baseUrl}/getUser/${userId}`);
+  }
 
   getUsersByRole(roleName: string): Observable<User[]> {
     return this.http.get<User[]>(`${this.baseUrl}/getUsersByRoleNative?role=${roleName}`);
@@ -29,7 +32,7 @@ export class UserapiService {
   deleteUser(userId: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/deleteuser?id=${userId}`);
   }
-  updateUserRoles(userId: number, roles: string[]): Observable<User> {
+  updateUserRoles(userId: number, roles: any): Observable<User> {
     const url = `${this.baseUrl}/update/${userId}/roles`;
     return this.http.put<User>(url, roles);
 }
