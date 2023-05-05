@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/admin/users']);
         console.log(this.storageService.getUser().roles);
       }
-      else(this.roles.includes('ROLE_CLIENT') || this.roles.includes('ROLE_VETERINARY'))
+      else if(this.roles.includes('ROLE_CLIENT') || this.roles.includes('ROLE_VETERINARY'))
       {
         // navigate to the desired route
         this.router.navigate(['']);
