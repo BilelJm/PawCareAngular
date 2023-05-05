@@ -1,0 +1,219 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+<app-index-navbar></app-index-navbar>
+<main>
+  <div 
+    class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75"
+  >
+    <div
+      class="absolute top-0 w-full h-full bg-center bg-cover"
+      style="
+        background-image: url('https://www.petplusvet.com/wp-content/uploads/sign-up-cats-and-dogs-768x338.jpg');
+      "
+    >
+      <span
+        id="blackOverlay"
+        class="w-full h-full absolute opacity-75 bg-black"
+      ></span>
+    </div>
+    <div class="container relative mx-auto " >
+      <div class="items-center flex flex-wrap">
+        <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center" >
+          <div class="pr-12" >
+            <h1 class="text-white font-semibold text-5xl">
+                Thank you for your purchase !   
+            </h1><br>S
+            <p class="mt-4 text-lg text-blueGray-200" >
+You have successfully purchased {{accessories.length}} items
+</p>
+<br>         <h6 class="mb-0"><a routerLink="/shop"  class="mt-4 text-lg text-blueGray-200">Back to Shop </a></h6>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px"
+      style="transform: translateZ(0)"
+    >
+      <svg
+        class="absolute bottom-0 overflow-hidden"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        version="1.1"
+        viewBox="0 0 2560 100"
+        x="0"
+        y="0"
+      >
+        <polygon
+          class="text-blueGray-200 fill-current"
+          points="2560 0 2560 100 0 100"
+        ></polygon>
+      </svg>
+    </div>
+  </div>
+
+
+
+  <section class="relative py-20">
+    <div
+      class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
+      style="transform: translateZ(0)"
+    >
+      <svg
+        class="absolute bottom-0 overflow-hidden"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        version="1.1"
+        viewBox="0 0 2560 100"
+        x="0"
+        y="0"
+      >
+        <polygon
+          class="text-white fill-current"
+          points="2560 0 2560 100 0 100"
+        ></polygon>
+      </svg>
+    </div>
+    <div class="container mx-auto px-4" >
+
+       
+
+</div>
+    <div class="container mx-auto px-4" *ngFor="let accessory of accessories">
+      <div class="items-center flex flex-wrap">
+        <div class="w-full md:w-4/12 ml-auto mr-auto px-4">
+            <img *ngIf="accessory.image" [src]="'http://localhost:8080/' + accessory.image" alt="Accessory Image" width="200" height="200">
+
+        </div>
+        <div class="w-full md:w-5/12 ml-auto mr-auto px-4">
+          <div class="md:pr-12">
+            <div
+            class="text-red-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-grey-300"
+            >
+              <i class="fas fa-fas fa-tasks	 text-xl"></i>
+            </div>
+            <h3 class="text-3xl font-semibold"></h3>
+       
+            <ul class="list-none mt-6">
+                
+              <li class="py-2">
+                <div class="flex items-center">
+                  <div>
+                    <span
+                      class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-red-600 bg-red-200 mr-3"
+                    >
+                      <i class="fas fa-info"></i>
+                    </span>
+                  </div>
+                  <div>
+                    <h4 class="text-blueGray-500">
+                        {{accessory.name}}
+                    </h4>
+                  </div>
+                </div>
+              </li>
+              <li class="py-2">
+                <div class="flex items-center">
+                  <div>
+                    <span
+                      class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-red-600 bg-red-200 mr-3"
+                    >
+                      <i class="fas fa-dollar-sign"></i>
+                    </span>
+                  </div>
+                  <div>
+                    <h4 class="text-blueGray-500">{{accessory.price}}DT
+                    </h4>
+
+                  </div>
+                </div>
+                
+              </li>
+              <li class="py-2">
+                <div class="flex items-center">
+               
+             
+                </div>
+              </li>              <br> <hr><br>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+  </section>
+
+  <section class="pb-20 relative block bg-blueGray-800">
+    <div
+      class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
+      style="transform: translateZ(0)"
+    >
+      <svg
+        class="absolute bottom-0 overflow-hidden"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        version="1.1"
+        viewBox="0 0 2560 100"
+        x="0"
+        y="0"
+      >
+        <polygon
+          class="text-blueGray-800 fill-current"
+          points="2560 0 2560 100 0 100"
+        ></polygon>
+      </svg>
+    </div>
+  
+    <div class="container mx-auto px-4 lg:pt-24 lg:pb-64">
+      <div class="flex flex-wrap text-center justify-center">
+      
+      </div>
+      <div class="flex flex-wrap mt-12 justify-center">
+        <div class="col-lg-4 bg-grey">
+          <div class="p-5">
+            <h3 class="fw-bold mb-5 mt-2 pt-1"> </h3>
+  
+            <div class="d-flex justify-content-between mb-4" *ngIf="user" >
+              <h5 class="text-uppercase"><span></span>
+              </h5>
+            </div>
+            <img src="https://urbanutilities.co.za/wp-content/uploads/2019/08/Payment-success.png" alt="Payment-success " width="300" height="300"><hr>
+            <br>
+  
+            <h5 class="text-white mb-5"> Total paid :{{orderDetails.totalItem}} DT</h5>
+  
+            <h5 class="text-white mb-5">Delivery price: {{orderDetails.deliveryPrice}}DT</h5>
+            <h5 class="text-white mb-5">Order status : {{orderDetails.orderstatus}}</h5>
+            <h5 class="text-white mb-5">Order date : {{orderDetails.date}}</h5><hr>
+            <h5 class="text-white mb-5"> Your name: {{user.username}}</h5>
+            <h5 class="text-white mb-5">Your email: {{user.email}}</h5>
+            <button class="btn btn-success btn-xs"  (click)="downloadBill()"> download bill pdf</button> <br><br> 
+  
+  
+          </div>
+  
+        </div>
+  
+  
+      </div>
+    </div>
+  </section>
+  
+  <section class="relative block py-24 lg:pt-0 bg-blueGray-800">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap justify-center lg:-mt-64 -mt-48">
+        <div class="w-full lg:w-6/12 px-4">
+          <div
+            class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200"
+          >
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<app-footer></app-footer>

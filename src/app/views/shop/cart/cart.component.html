@@ -1,0 +1,237 @@
+<app-index-navbar></app-index-navbar>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+<main>
+  <div
+    class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75"
+  >
+    <div
+      class="absolute top-0 w-full h-full bg-center bg-cover"
+      style="
+        background-image: url('https://img.freepik.com/premium-photo/cat-paws-pushing-empty-shopping-cart-white-background-shopping-concept-products-cats-empty-space-cart-side-view-grocery-basket_96336-1338.jpg?w=1060');
+      "
+    >
+      <span
+        id="blackOverlay"
+        class="w-full h-full absolute opacity-75 bg-black"
+      ></span>
+    </div>
+    <div class="container relative mx-auto">
+      <div class="items-center flex flex-wrap">
+        <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+          <div class="pr-12">
+            <h1 class="text-white font-semibold text-5xl">
+Your cart            </h1><br>
+<p class="mt-4 text-lg text-blueGray-200">
+    Manage items in your cart
+   
+            </p>
+   <br>         <h6 class="mb-0"><a routerLink="/shop"  class="mt-4 text-lg text-blueGray-200">Back to Shop </a></h6>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div
+      class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px"
+      style="transform: translateZ(0)"
+    >
+
+      <svg
+        class="absolute bottom-0 overflow-hidden"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        version="1.1"
+        viewBox="0 0 2560 100"
+        x="0"
+        y="0"
+      >
+        <polygon
+          class="text-blueGray-200 fill-current"
+          points="2560 0 2560 100 0 100"
+        ></polygon>
+      </svg>
+    </div>
+  </div>
+
+
+
+  <section class="relative py-20">
+    <div
+      class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
+      style="transform: translateZ(0)"
+    >
+
+      <svg
+        class="absolute bottom-0 overflow-hidden"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        version="1.1"
+        viewBox="0 0 2560 100"
+        x="0"
+        y="0"
+      >
+        <polygon
+          class="text-white fill-current"
+          points="2560 0 2560 100 0 100"
+        ></polygon>
+      </svg>
+    </div>
+
+    <div class="container mx-auto px-4" *ngFor="let accessory of AccessoriesInCart">
+
+      <div class="items-center flex flex-wrap">
+        
+        <div class="w-full md:w-4/12 ml-auto mr-auto px-4">
+            <img *ngIf="accessory.image" [src]="'http://localhost:8080/' + accessory.image" alt="Accessory Image" width="200" height="200">
+
+        </div>
+        <div class="w-full md:w-5/12 ml-auto mr-auto px-4">
+          <div class="md:pr-12">
+
+            <ul class="list-none mt-6">
+                <div
+                class="text-red-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-grey-300"
+              >
+                <i class="fas fa-shopping-cart text-xl"></i>
+              
+              </div>
+            <h4 class="text-blueGray-500">{{accessory.name}}</h4>
+          
+              <li class="py-2">
+                <div class="flex items-center">
+                  <div>
+                    <span
+                      class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-red-600 bg-red-200 mr-3"
+                    >
+                      <i class="fas fa-dollar-sign"></i>
+                    </span>
+                  </div>
+                  <div>
+                    <h4 class="text-blueGray-500">
+                        {{accessory.price}}DT
+                    </h4>
+                  </div>
+                </div>
+              </li>
+              <li class="py-2">
+                <div class="flex items-center">
+                  <div>
+                    <span
+                      class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-red-600 bg-red-200 mr-3"
+                    >
+                      <i class="fas fa-info"></i>
+                    </span>
+                  </div>
+                  <div>
+                    <h4 class="text-blueGray-500">{{accessory.description}}</h4>
+
+                </div>
+
+                </div><br>
+                <button class="btn btn-success btn-xs" (click)="removeAccessoryFromCart(accessory.idAccessory,accessory)"><span class="glyphicon glyphicon-remove"></span> Remove </button>
+
+              </li>
+             <br> <hr><br>
+
+            
+            </ul>
+
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="container mx-auto px-4" >
+
+    <div class="col-lg-4 bg-grey">
+  
+    </div>
+
+
+    </div>
+    </section>
+
+ 
+
+  <section class="pb-20 relative block bg-blueGray-800">
+    <div
+      class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
+      style="transform: translateZ(0)"
+    >
+      <svg
+        class="absolute bottom-0 overflow-hidden"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        version="1.1"
+        viewBox="0 0 2560 100"
+        x="0"
+        y="0"
+      >
+        <polygon
+          class="text-blueGray-800 fill-current"
+          points="2560 0 2560 100 0 100"
+        ></polygon>
+      </svg>
+    </div>
+
+    <div class="container mx-auto px-4 lg:pt-24 lg:pb-64">
+      <div class="flex flex-wrap text-center justify-center">
+        <div class="w-full lg:w-6/12 px-4">
+          <h2 class="text-4xl font-semibold text-white">Cart summary</h2>
+         
+        </div>
+      </div>
+      <div class="flex flex-wrap mt-12 justify-center">
+     
+  
+      </div>
+    </div>
+  </section>
+  <section class="relative block py-24 lg:pt-0 bg-blueGray-800">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap justify-center lg:-mt-64 -mt-48">
+        <div class="w-full lg:w-6/12 px-4">
+          <div
+            class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200"
+          >
+            <div class="flex-auto p-5 lg:p-10">
+           
+              <div class="p-5">
+                <hr class="my-4">
+        
+                <div class="d-flex justify-content-between mb-4">
+                  <h4 class="text-blueGray-500"><span>{{cart.accessories.length}} items</span>
+                  </h4>
+                </div>
+        
+        
+        
+        
+        
+                <h4 class="text-blueGray-500">delivery price : 7DT</h4>
+        
+        
+                <hr class="my-4">
+        
+                <div class="d-flex justify-content-between mb-5">
+                  <h4 class="text-blueGray-500">total items :{{ totalPrice }}DT
+                  </h4>
+                </div>
+                <button type="button" class="btn btn-dark btn-block btn-lg"
+                        data-mdb-ripple-color="dark"(click)="confirmOrder()">Confirm Order</button>
+                <br><hr>
+                <button class="btn btn-success btn-xs" (click)="emptyCart()"><span class="glyphicon glyphicon-remove"></span> Empty Cart </button>
+        
+              </div>
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<app-footer></app-footer>

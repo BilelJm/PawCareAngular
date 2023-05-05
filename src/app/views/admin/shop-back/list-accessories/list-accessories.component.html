@@ -1,0 +1,188 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+<div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded"
+  [ngClass]="color === 'light' ? 'bg-white' : 'bg-red-900 text-white'">
+  <div class="rounded-t mb-0 px-4 py-3 border-0">
+    <div class="flex flex-wrap items-center">
+      <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+
+        <h3 class="font-semibold text-lg" [ngClass]="color === 'light' ? 'text-blueGray-700' : 'text-white'">
+Accessories list        </h3>
+
+
+
+
+      </div>
+
+
+    </div>
+
+
+
+  </div>
+ 
+
+  <div class="block w-full overflow-x-auto">
+
+    <div class="px-4 py-4">
+        <nav>
+            <ul class="pagination">
+        
+              <li class="page-item" [ngClass]="{'disabled': currentPage === 1}">
+                <a class="page-link" (click)="getPage(currentPage - 1); currentPage = currentPage - 1;">Previous</a>
+              </li>
+        
+              <li class="page-item" [ngClass]="{'disabled': currentPage === totalPages}">
+                <a class="page-link" (click)="getPage(currentPage + 1)">Next </a>
+              </li>
+        
+            </ul>
+        
+          </nav><br><hr>
+            <!-- Sorting controls -->
+  <div class="form-group row">
+    <label for="sortField" class="col-sm-2 col-form-label"></label>
+   <br> <div class="col-sm-4">
+      <select id="sortField" class="form-control" [(ngModel)]="sortField">
+        <option value="name">Name</option>
+        <option value="price">Price</option>
+        <option value="description">Description</option>
+      </select>
+    </div>
+    <br>
+    <div class="col-sm-2">
+      <select id="sortDir" class="form-control" [(ngModel)]="sortDir">
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+      </select>
+    </div>
+    <div class="col-sm-4">
+      <button class="btn btn-outline-success b my-2 my-sm-0" (click)="getPage(1)">Sort</button>
+    </div>
+    
+  </div>
+<br>
+<hr>
+<button class="btn btn-outline-warning my-2 my-sm-0" type="button" (click)="exportAccessoriesToCsv()">Download Accessories.csv</button>
+<br><br>
+<button class="btn btn-outline-primary my-2 my-sm-0" type="button" ><a href="admin/addAccessory">Add a new accessory</a></button>
+
+
+          <hr><br>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search by name" [(ngModel)]="searchName" name="searchDescription"><br>
+         <br>   <input class="form-control mr-sm-2" type="number" placeholder="Search by price" [(ngModel)]="searchPrice" name="searchPrice">
+  <br><button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="searchAccessories()">Find</button>
+          </form>
+          </div>
+    <!-- Projects table -->
+    <table class="items-center w-full bg-transparent border-collapse">
+      <thead>
+        <tr>
+          
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            [ngClass]="
+            color === 'light'
+              ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+              : 'bg-red-800 text-red-300 border-red-700'
+          ">
+            ID
+          </th>
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            [ngClass]="
+            color === 'light'
+              ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+              : 'bg-red-800 text-red-300 border-red-700'
+          ">
+            Name
+          </th>
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            [ngClass]="
+            color === 'light'
+              ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+              : 'bg-red-800 text-red-300 border-red-700'
+          ">
+Description          </th>
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            [ngClass]="
+              color === 'light'
+                ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                : 'bg-red-800 text-red-300 border-red-700'
+            ">
+            Price
+          </th>
+        
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            [ngClass]="
+              color === 'light'
+                ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                : 'bg-red-800 text-red-300 border-red-700'
+            ">
+Image          </th>
+<th
+class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+[ngClass]="
+  color === 'light'
+    ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+    : 'bg-red-800 text-red-300 border-red-700'
+">
+Edit
+</th>
+<th
+class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+[ngClass]="
+  color === 'light'
+    ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+    : 'bg-red-800 text-red-300 border-red-700'
+">
+Delete
+</th>
+          
+        </tr>
+      </thead>
+      <tbody *ngFor="let accessory of accessories | paginate: { itemsPerPage: 6, currentPage: page, totalItems: totalItems}">
+        <tr >
+
+          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+            {{ accessory.idAccessory }}
+          </td>
+          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+            {{ accessory.name}}
+          </td>
+          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"> {{
+            accessory.description}}
+          </td>
+          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"> {{
+          accessory.price}}
+          </td>
+         
+          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+            <img *ngIf="accessory.image" [src]="'http://localhost:8080/' + accessory.image" alt="Accessory Image" width="100">
+        </td>
+
+    
+      
+
+
+          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+            <button class="btn btn-light btn-xs" (click)="updateAccessory(accessory.idAccessory)">Edit</button></td>
+              
+            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                <button class="btn btn-danger btn-xs" (click)="deleteAccessory(accessory.idAccessory)">Delete</button></td>
+
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="getPage($event)" [maxSize]="10" [directionLinks]="true" [autoHide]="true"></pagination-controls>
+
+
+  </div>
+
+</div>

@@ -1,0 +1,207 @@
+<app-index-navbar></app-index-navbar>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+<main>
+    <div
+      class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75"
+    >
+      <div 
+        class="absolute top-0 w-full h-full bg-center bg-cover" 
+        style="
+          background-image: url('https://media.tiffany.com/is/image/tiffanydm/Pets_PDP_Collection_Tile_Desktop_?$tile$&wid=3200&hei=1520');
+        "
+        
+      >
+        <span
+          id="blackOverlay"
+          class="w-full h-full absolute opacity-75 bg-black"
+        ></span>
+      </div> 
+      <div class="container relative mx-auto">
+        <div class="items-center flex flex-wrap">
+          <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+            <div class="pr-12">
+              <h1 class="text-white font-semibold text-5xl">
+               Shop now              </h1><br>
+              <p class="mt-4 text-lg text-blueGray-200">
+                 A selection of high quality accessories to pamper your fur baby.
+
+              </p>
+    
+            </div>
+            
+          </div>
+          
+        </div>
+        
+      </div>
+      <div
+        class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px"
+        style="transform: translateZ(0)"
+      >
+        <svg
+          class="absolute bottom-0 overflow-hidden"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+          version="1.1"
+          viewBox="0 0 2560 100"
+          x="0"
+          y="0"
+        >
+          <polygon
+            class="text-blueGray-200 fill-current"
+            points="2560 0 2560 100 0 100"
+          ></polygon>
+        </svg>
+      </div>
+    </div>
+  <!-- Sorting controls -->
+  <br><br>
+<div class="form-group row">
+    <label for="sortField" class="col-sm-2 col-form-label"></label>
+    <div class="col-sm-4">
+      <select id="sortField" class="form-control" [(ngModel)]="sortField">
+        <option value="name">Name</option>
+        <option value="price">Price</option>
+        <option value="description">Description</option>
+      </select>
+      <br>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search by name" [(ngModel)]="searchName" name="searchDescription">
+       <br> <input class="form-control mr-sm-2" type="number" placeholder="Search by price" [(ngModel)]="searchPrice" name="searchPrice">
+        <br>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="searchAccessories()">Search</button>
+      </form>
+    </div>
+    <div class="col-sm-2">
+      <select id="sortDir" class="form-control" [(ngModel)]="sortDir">
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+      </select>
+  
+    </div>
+    <div class="col-sm-4">
+      <button class="btn btn-outline-primary b my-2 my-sm-0" (click)="getPage(1)">Sort</button>
+  
+    </div>
+  
+  </div>
+   <br><br><br><br><br> <section class="pb-20 bg-blueGray-200 -mt-24">
+     <br>  <br> <div class="container mx-auto px-4">
+         <nav>
+                <ul class="pagination">
+              
+                  <li class="page-item" [ngClass]="{'disabled': currentPage === 1}">
+                    <a class="page-link" (click)="getPage(currentPage - 1); currentPage = currentPage - 1;">Previous</a>
+                  </li>
+              
+                  <li class="page-item" [ngClass]="{'disabled': currentPage === totalPages}">
+                    <a class="page-link" (click)="getPage(currentPage + 1)">Next</a>
+                  </li>
+              
+                </ul>
+              
+              </nav>
+              <div class="flex flex-wrap">
+                
+                <div class="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center" 
+                
+                  *ngFor="let accessory of accessories | paginate: { itemsPerPage: 6, currentPage: page, totalItems: totalItems }">
+                  
+                  <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                    <div class="px-4 py-5 flex-auto">
+                      <div class="flex items-center justify-center mb-4">
+                        <img *ngIf="accessory.image" [src]="'http://localhost:8080/' + accessory.image" alt="Accessory Image" width="200" height="200" class="mr-4">
+                        <div>
+                          <h6 class="text-xl font-semibold">{{ accessory.name }}</h6>
+                          <p class="mt-2 mb-1 text-blueGray-500">{{ accessory.description }}</p>
+                          <p class="text-blueGray-500">{{ accessory.price }}DT</p>
+                        </div>
+                      </div>
+                      <button type="button" class="btn btn-success mt-4 text-white" 
+                        (click)="addAccessoryToCart(accessory.idAccessory, accessory)">
+                        <i class="icon-cart-add mr-2"></i> Add to cart
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+      
+         
+        </div>
+        <pagination-controls (pageChange)="getPage($event)" [maxSize]="10" [directionLinks]="true" [autoHide]="true"></pagination-controls>
+
+      </section>
+      
+  
+    
+    <section class="pt-20 pb-48">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-wrap justify-center text-center mb-24">
+          <div class="w-full lg:w-6/12 px-4"><br>
+            <h2 class="text-4xl font-semibold">Pay online</h2>
+          <br>  <h4 class="text-lg leading-relaxed m-4 text-blueGray-500">
+                Perform a safe payment with debit card
+          </h4><br>
+            <img src="https://nichegamer.com/wp-content/uploads/2022/03/visa-mastercard-paypal-block-russia-03-06-22-1.jpg" height="100" weight="100">
+
+          </div>
+        </div>
+        <div class="flex flex-wrap">
+          <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
+            <div class="px-6">
+           
+              <div class="pt-6 text-center">
+            
+                <div class="mt-6">
+                
+                
+                
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
+            <div class="px-6">
+              
+              <div class="pt-6 text-center">
+         
+                <div class="mt-6">
+              
+               
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
+            <div class="px-6">
+              
+              <div class="pt-6 text-center">
+            
+                <div class="mt-6">
+            
+          
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
+            <div class="px-6">
+             
+              <div class="pt-6 text-center">
+                <div class="mt-6">
+              
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+
+
+  </main>
+<app-footer></app-footer>

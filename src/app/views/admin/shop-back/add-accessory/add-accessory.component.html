@@ -1,0 +1,103 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"
+      xmlns:margin-right="http://www.w3.org/1999/xhtml" xmlns:margin-right="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<div
+class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded"
+[ngClass]="color === 'light' ? 'bg-white' : 'bg-red-900 text-white'"
+>
+<div class="rounded-t mb-0 px-4 py-3 border-0">
+  <div class="flex flex-wrap items-center">
+    <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+      <h3
+        class="font-semibold text-lg"
+        [ngClass]="color === 'light' ? 'text-blueGray-700' : 'text-white'"
+      >
+Add a new accessory      </h3>
+    </div>
+  </div>
+</div>
+<div class="block w-full overflow-x-auto">
+    <div class="table-responsive p-4">
+        <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+        <form (ngSubmit)="onSubmit()" [formGroup]="accessoryForm">
+            <div class="form-group">
+              <label for="name"></label>
+              <input placeholder="name" type="text" class="form-control" id="name" formControlName="name" required>
+              <div *ngIf="accessoryForm.get('name')?.errors && (accessoryForm.get('name')?.dirty || accessoryForm.get('name')?.touched)" class="alert alert-danger">
+                <div *ngIf="accessoryForm.get('name')?.errors?.required">
+                  Name is required.
+                </div>
+                <div *ngIf="accessoryForm.get('name')?.errors?.minlength">
+                  Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="accessoryForm.get('name')?.errors?.maxlength">
+                  Name cannot be more than 40 characters long.
+                </div>
+                <div *ngIf="accessoryForm.get('name')?.errors?.pattern">
+                  Name can only contain letters and spaces.
+                </div>
+                <div *ngIf="accessoryForm.get('name')?.errors?.badword">Name contains bad words</div>
+    
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="price"></label>
+              <input placeholder="price" type="text" class="form-control" id="price" formControlName="price" required>
+              <div *ngIf="accessoryForm.get('price')?.errors && (accessoryForm.get('price')?.dirty || accessoryForm.get('price')?.touched)" class="alert alert-danger">
+                <div *ngIf="accessoryForm.get('price')?.errors?.required">
+                  Price is required.
+                </div>
+                <div *ngIf="accessoryForm.get('price')?.errors?.min">
+                  Price must be at least 10.
+                </div>
+                <div *ngIf="accessoryForm.get('price')?.errors?.pattern">
+                  Price must be a number
+                </div>
+    
+              </div>
+            </div><br>
+            <div class="form-group">
+              <label for="description"></label>
+              <input placeholder="description" type="text" class="form-control" id="description" formControlName="description" required>
+              <div *ngIf="accessoryForm.get('description')?.errors && (accessoryForm.get('description')?.dirty || accessoryForm.get('description')?.touched)" class="alert alert-danger">
+                <div *ngIf="accessoryForm.get('description')?.errors?.required">
+                  Description is required.
+                </div>
+                <div *ngIf="accessoryForm.get('description')?.errors?.minlength">
+                  Description must be at least 10 characters long.
+                </div>
+                <div *ngIf="accessoryForm.get('description')?.errors?.maxlength">
+                  Description cannot be more than 50 characters long.
+                </div>
+                <div *ngIf="accessoryForm.get('description')?.errors?.pattern">
+                  Description should contain alphabets, spaces, and numbers.
+                </div>
+              </div>
+            </div>
+            <div class="form-group"><br>
+              <label for="image">image</label>
+              <input type="file" class="form-control" id="image" formControlName="image" (change)="onImageSelected($event)" accept="image/*" enctype="multipart/form-data" required>
+              <img [src]="imageUrl" *ngIf="imageUrl">
+    
+              <div *ngIf="accessoryForm.get('image')?.errors && (accessoryForm.get('image')?.dirty || accessoryForm.get('image')?.touched)" class="alert alert-danger">
+                <div *ngIf="accessoryForm.get('image')?.errors?.required">
+                  Image is required.
+                </div>
+              </div>
+    
+            </div><br>
+            <button type="submit" class="btn btn-primary" [disabled]="!accessoryForm.valid">Submit</button>
+            
+          </form>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+
+    </div>
+</div>
+</div>

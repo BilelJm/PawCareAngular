@@ -47,6 +47,20 @@ import { PagesDropdownComponent } from "./components/dropdowns/pages-dropdown/pa
 import { NotificationDropdownComponent } from "./components/dropdowns/notification-dropdown/notification-dropdown.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user-dropdown.component";
+import { ShopComponent } from './views/shop/shop/shop.component';
+import { CartComponent } from './views/shop/cart/cart.component';
+import { OrderComponent } from './views/shop/order/order.component';
+import { PaymentComponent } from './views/shop/payment/payment.component';
+import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule}from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxStripeModule } from 'ngx-stripe';
+import { AddAccessoryComponent } from './views/admin/shop-back/add-accessory/add-accessory.component';
+import { ListAccessoriesComponent } from './views/admin/shop-back/list-accessories/list-accessories.component';
+import { UpdateAccessoryComponent } from './views/admin/shop-back/update-accessory/update-accessory.component';
+import { OrderChartComponent } from './views/admin/shop-back/order-chart/order-chart.component';
 
 @NgModule({
   declarations: [
@@ -84,8 +98,17 @@ import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user
     IndexComponent,
     LandingComponent,
     ProfileComponent,
+    ShopComponent,
+    CartComponent,
+    OrderComponent,
+    PaymentComponent,
+    AddAccessoryComponent,
+    ListAccessoriesComponent,
+    UpdateAccessoryComponent,
+    OrderChartComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule,HttpClientModule,ToastrModule.forRoot(),FormsModule,BrowserAnimationsModule,NgxPaginationModule,ReactiveFormsModule,NgxStripeModule.forRoot('pk_test_51N2AKQBKAkRPCxsKdRThVMer5U49Ws6uV0IiHJJoHpIPMbS0S0xH7FZBFSsasxO54g0kaIgqpaW0ghmJGVosrHMa00G9jgARvd')
+],
   providers: [],
   bootstrap: [AppComponent],
 })

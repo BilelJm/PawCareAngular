@@ -1,6 +1,5 @@
 import { Component, OnInit, AfterViewInit } from "@angular/core";
-import Chart from "chart.js";
-
+import Chart from "chart.js"
 @Component({
   selector: "app-card-line-chart",
   templateUrl: "./card-line-chart.component.html",
