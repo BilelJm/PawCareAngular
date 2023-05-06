@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Reservation } from '../reservation';
+import { MailDetails } from '../details';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,13 @@ export class ReservationService {
     
     return this.httpClient.post(`${this.baseUrl+"addreservation"}`,reservation);
   }
+  createReservationtoo(reservation: Reservation, email:string): Observable<Object>{
+    const data=new FormData();
+    reservation.status="Confirmed";
+    
+    return this.httpClient.post(`${this.baseUrl+"addreservation/"}${email}`,reservation);
+  }
+  
   deleteReservation(id: number): Observable<Object>{
     return this.httpClient.delete(`${this.baseUrl+"deletereservation/"}${id}`);
   }
@@ -28,5 +36,8 @@ export class ReservationService {
   }
   getReservationById(id: number): Observable<Reservation>{
     return this.httpClient.get<Reservation>(`${this.baseUrl+"findreservationby/"}${id}`);
+  }
+  sendemail(mail:MailDetails){
+    return this.httpClient.post(`${this.baseUrl+"sendMailWithAttachment"}`,mail);
   }
 }

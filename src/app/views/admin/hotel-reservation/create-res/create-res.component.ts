@@ -14,6 +14,9 @@ export class CreateResComponent implements OnInit {
   reservation: Reservation = new Reservation();
 
   ngOnInit(): void {
+    this.dateControle();
+    this.CheckoutControle();
+    
   }
   onSubmit(){
     console.log(this.reservation);
@@ -40,4 +43,33 @@ export class CreateResComponent implements OnInit {
     this._color = color !== "light" && color !== "dark" ? "light" : color;
   }
   private _color = "light";
+  dateControle(){
+  const dateInput = document.getElementById('checkin');
+  const today = new Date();
+  const tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const minDate = tomorrow.toISOString().slice(0, 10);
+  dateInput.setAttribute('min', minDate);
+  }
+  CheckoutControle(){
+  const checkIn  = document.getElementById('checkin');
+  const checkOut  = document.getElementById('checkout');
+    checkIn.addEventListener('change', () => {
+    const inputElement = event.target as HTMLInputElement;
+    const selectedDate = new Date(inputElement.value);
+    
+    // Add one day to selected date
+    selectedDate.setDate(selectedDate.getDate() + 1);
+    // Format date as yyyy-mm-dd string
+    const maxDate = selectedDate.toISOString().slice(0, 10);
+    // Set max attribute of check-out input
+    checkOut.setAttribute('min', maxDate);
+  });
+ /* const today = new Date();
+  const tomorrow = new Date(today);
+  tomorrow.setDate( + 2);
+  const minDate = tomorrow.toISOString().slice(0, 10);
+  checkIn.setAttribute('min', minDate);*/
+  }
+  
 }

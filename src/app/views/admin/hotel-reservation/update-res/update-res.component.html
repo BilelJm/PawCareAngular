@@ -13,15 +13,15 @@
     </div>
     <div class="block w-full overflow-x-auto">
         <div class="table-responsive p-4">
-            <form (ngSubmit)="onSubmit()">
+            <form (ngSubmit)="onSubmit()" #form="ngForm">
                 <div class="form-group mb-4">
                     <label class="input-label">Check In</label>
-                    <input type="datetime-local" class="form-control" id="checkin" [(ngModel)]="reservation.checkin">
+                    <input type="date" class="form-control" id="checkin" min="" [(ngModel)]="reservation.checkin" required>
                 </div>
 
                 <div class="form-group mb-4">
                     <label class="input-label">Check Out</label>
-                    <input type="datetime-local" class="form-control" id="checkout" [(ngModel)]="reservation.checkout">
+                    <input type="date" class="form-control" id="checkout" min="" [(ngModel)]="reservation.checkout" required>
                 </div>
 
                 <div class="form-group mb-4">
@@ -32,13 +32,13 @@
 
                 <div class="form-group mb-4">
                     <label class="input-label" for="Status">Status</label>
-                    <select class="form-select" id="status" name="status" [(ngModel)]="reservation.status">
+                    <select class="form-select" id="status" name="status" [(ngModel)]="reservation.status" required>
                         <option value="Confirmed">Confirmed</option>
                         <option value="Cancelled">Cancelled</option>
                     </select>
                 </div>
                 <div class="form-group">
-                <button type="submit" class="btn btn-success">Update</button>
+                <button type="submit" class="btn btn-success" [disabled]="form.invalid">Update</button>
                 </div>
         </form>
     </div>

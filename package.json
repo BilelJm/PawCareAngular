@@ -31,6 +31,8 @@
     "@syncfusion/ej2-material-theme": "^21.1.41",
     "@syncfusion/ej2-schedule": "^21.1.41",
     "@tailwindcss/forms": "0.2.1",
+    "aos": "^2.3.4",
+    "bootstrap": "^5.2.3",
     "chart.js": "2.9.4",
     "ng-angular-popup": "^0.2.0",
     "ng2-order-pipe": "^0.1.5",

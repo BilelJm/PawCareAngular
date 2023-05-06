@@ -53,6 +53,8 @@ export class HotelUpdateComponent implements OnInit {
   gotoHotellist(){
     this.router.navigate(['/admin/hotel-res']);
   }
+
+  
   
 
 }
