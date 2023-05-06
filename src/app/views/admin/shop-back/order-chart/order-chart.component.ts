@@ -11,19 +11,23 @@ import { CartService } from 'src/app/views/shop/services/cart.service';
 })
 export class OrderChartComponent implements OnInit {
 
-  itemList: Order[];
+  orders: Order[];
+  user!:any;
 
   constructor(private orderService: OrderService) {}
 
   ngOnInit(): void {
-    this.getItemList();
-  }
+    this.orderService.getAllOrders().subscribe((data: any[]) => {
+      this.orders = data;
+      for (let order of this.orders) {
+        this.orderService.getUserByOrderId(order.idItem).subscribe (user=>this.user=user,error=>console.log(error));
+      }
 
-  getItemList(): void {
-    this.orderService.getAllOrders().subscribe(itemList => this.itemList = itemList);
-  }
+    });
 
   
+  }
+
 
 
 }

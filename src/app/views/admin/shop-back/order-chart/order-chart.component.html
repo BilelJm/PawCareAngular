@@ -9,10 +9,13 @@ crossorigin="anonymous">
       <div class="relative w-full px-4 max-w-full flex-grow flex-1">
 
         <h3 class="font-semibold text-lg" [ngClass]="color === 'light' ? 'text-blueGray-700' : 'text-white'">
-orders list        </h3>
+Orders list        </h3>
 
-
-
+<hr>
+<h4 class="font-semibold text-lg" [ngClass]="color === 'light' ? 'text-blueGray-700' : 'text-white'">
+Check you mail every day at 10am for a daily report of orders revenues 
+</h4>
+<button (click)="generatePdf()">Generate PDF</button>
 
       </div>
 
@@ -28,7 +31,7 @@ orders list        </h3>
 
     
     <!-- Projects table -->
-    <table class="items-center w-full bg-transparent border-collapse">
+    <table   class="items-center w-full bg-transparent border-collapse">
       <thead>
         <tr>
           
@@ -49,22 +52,43 @@ Total paid          </th>
           ">
 Order status          </th>
 
-        
+<th
+class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+[ngClass]="
+color === 'light'
+  ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+  : 'bg-red-800 text-red-300 border-red-700'
+">
+Order date      </th>
 
-          
+<th
+class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+[ngClass]="
+color === 'light'
+  ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+  : 'bg-red-800 text-red-300 border-red-700'
+">
+User email     </th>
+    
         </tr>
       </thead>
-      <tbody *ngFor="let item of items">
+      <tbody *ngFor="let order of orders">
         <tr  >
 
           <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"> {{
-            orderDetails.totalItems}}
+            order.totalItem}}
           </td>
           <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"> {{
-          orderDetails.orderstatus}}
+          order.orderstatus}}
           </td>
      
-
+          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"> {{
+            order.date}}
+            </td>
+            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"> {{
+           user.email}}
+              </td>
+           
         </tr>
       </tbody>
     </table>
