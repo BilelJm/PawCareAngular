@@ -58,19 +58,9 @@ export class ListArticleComponent implements OnInit {
     })
   }
 
-  Search() {
-    if (!this.title) {
-      console.log(this.title);
-      this.ngOnInit();
-    } else {
-      console.log(this.title);
-      this.articles = this.articles.filter(item => {
-       return item.title.toLowerCase().includes(this.title.toLowerCase())
-    });
-    }
-  }
+
   showArticle(id:number){
-    this.router.navigate(['/article-details',id]);
+    this.router.navigate(['/details-article',id]);
   }
   onSubmit(): void {
     this.articleService.createArticle(this.Articles, this.fileToUpload).subscribe(
@@ -89,5 +79,10 @@ export class ListArticleComponent implements OnInit {
   }
   handleFileInput(files: FileList): void {
     this.fileToUpload = files.item(0);
+  }
+  incrementLikes(article: Article): void {
+    this.articleService.incrementLikes(article.id).subscribe(updatedArticle => {
+      article.nblike = updatedArticle.nblike;
+    });
   }
 }

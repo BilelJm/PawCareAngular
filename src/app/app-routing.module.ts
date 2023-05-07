@@ -26,12 +26,18 @@ import { ArticleUpdateComponent } from "./views/admin/article/article-update/art
 import { ArticleDetailsComponent } from "./views/admin/article/article-details/article-details.component";
 import { CommentListComponent } from "./views/admin/comment/comment-list/comment-list.component";
 import { ListArticleComponent } from "./views/article-front/list-article/list-article.component";
+import { CreateArticleComponent } from "./views/article-front/create-article/create-article.component";
+import { DetailsArticleComponent } from "./views/article-front/details-article/details-article.component";
+import { AddCommentComponent } from "./views/article-front/add-comment/add-comment.component";
 
 
 const routes: Routes = [
 
   { path: 'list-article', component: ListArticleComponent },
-
+  {path: 'create-article', component: CreateArticleComponent},
+  {path: 'details-article/:id', component:DetailsArticleComponent},
+  {path: 'comment-add', component:AddCommentComponent},
+  
   // admin views
   {
     path: "admin",
@@ -49,7 +55,8 @@ const routes: Routes = [
       { path: 'article-create',        component: ArticleCreateComponent },
       { path: 'article-update/:id',        component: ArticleUpdateComponent },
       { path: 'article-details/:id',        component: ArticleDetailsComponent },
-      { path: 'comment-list',        component: CommentListComponent }
+      { path: 'comment-list',        component: CommentListComponent },
+      
 
     ],
   },

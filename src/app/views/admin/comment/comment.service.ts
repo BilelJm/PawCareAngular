@@ -14,4 +14,7 @@ export class CommentService {
   getArticleList():Observable<Comment[]>{
     return this.httpClient.get<Comment[]>(`${this.baseURL}`);
   }
+  createComment(comment: Comment): Observable<Comment> {
+    return this.httpClient.post<Comment>(`${this.baseURL}/addComment`, comment);
+  }
 }

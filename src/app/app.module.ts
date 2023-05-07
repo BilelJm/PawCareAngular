@@ -60,6 +60,8 @@ import { CreateArticleComponent } from './views/article-front/create-article/cre
 import { ListArticleComponent } from './views/article-front/list-article/list-article.component';
 import { DeleteArticleComponent } from './views/article-front/delete-article/delete-article.component';
 import { UpdateArticleComponent } from './views/article-front/update-article/update-article.component';
+import { DetailsArticleComponent } from './views/article-front/details-article/details-article.component';
+import { AddCommentComponent } from './views/article-front/add-comment/add-comment.component';
 
 
 
@@ -112,6 +114,8 @@ import { UpdateArticleComponent } from './views/article-front/update-article/upd
     ListArticleComponent,
     DeleteArticleComponent,
     UpdateArticleComponent,
+    DetailsArticleComponent,
+    AddCommentComponent,
     
     
     

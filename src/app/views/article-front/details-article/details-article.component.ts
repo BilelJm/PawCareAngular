@@ -1,14 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {Article} from '../../../../article'
-import { ArticleService } from '../article.service';
+import { Article } from 'src/app/article';
+import { ArticleService } from '../../admin/article/article.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-article-details',
-  templateUrl: './article-details.component.html',
-  styleUrls: ['./article-details.component.css']
+  selector: 'app-details-article',
+  templateUrl: './details-article.component.html',
+  styleUrls: ['./details-article.component.css']
 })
-export class ArticleDetailsComponent implements OnInit {
+export class DetailsArticleComponent implements OnInit {
   fileToUpload: File | null = null;
   id: number
   article: Article;

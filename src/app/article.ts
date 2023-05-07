@@ -11,6 +11,6 @@ export class Article {
     nbcomments!: number;
     tags!: string;
     media!: string;
-    comment!: Comment;
+    comment!: Comment[];
     imageUrl: String;
 }

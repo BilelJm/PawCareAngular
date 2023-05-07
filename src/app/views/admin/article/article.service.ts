@@ -35,9 +35,15 @@ export class ArticleService {
     return this.httpClient.post(`${this.baseURL}/addArticle`, formData);
   }
   
-  getArticleById(id: number): Observable<Article>{
-    return this.httpClient.get<Article>(`${this.baseURL+"/"}${id}`);
+  getArticleById(id: number): Observable<Article> {
+    const articleUrl = `${this.baseURL}/${id}`;
+    return this.httpClient.get<Article>(articleUrl).pipe(
+      tap(article => {
+        article.imageUrl = `${this.baseURL}/${id}/picture`;
+      })
+    );
   }
+  
 
   updateArticle(id: number, article: Article, file: File): Observable<Object> {
     const formData: FormData = new FormData();
@@ -63,5 +69,17 @@ export class ArticleService {
     return this.httpClient.get<Comment[]>(`${this.baseURL}/${id}/comments`);
   }
   
+  incrementLikes(id: number): Observable<Article> {
+    const url = `${this.baseURL}/${id}/likes`;
+    return this.httpClient.post<Article>(url, {});
+  }
+  
+  addComment(articleId: number, commentContent: string) {
+    const comment = {
+      content: commentContent,
+      articleId: articleId
+    };
+    return this.httpClient.post<Article>(`${this.baseURL}/${articleId}/addComment`, comment);
+  }
 
 }

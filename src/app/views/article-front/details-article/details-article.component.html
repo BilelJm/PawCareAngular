@@ -116,55 +116,62 @@
 
 
 <body class="body">
-<app-index-navbar style="margin-top: 200px;"></app-index-navbar>
-<div style="padding-top: 100px;">
-<!-- discussion-forum.component.html -->
-<div class="back-button" style="margin-left: 50px;">
-  <button routerLink="" class="home-button" >
-    Back to Home
-  </button>
-</div>
-
-
-<div class="discussion-forum">
-  <div class="forum-header">
-    <h1>DISCUSSION</h1>
-  </div>
-  <div class="back-button" style="padding-top: 20px; text-align: right;">
-    <button routerLink="/create-article" class="home-button" style="background-color:darkblue;" >
-      Add Article
+  <app-index-navbar style="margin-top: 200px;"></app-index-navbar>
+  <div style="padding-top: 100px;">
+  <!-- discussion-forum.component.html -->
+  <div class="back-button" style="margin-left: 50px;">
+    <button routerLink="/list-article" class="home-button" >
+      Back to Forum
     </button>
   </div>
-  
-  <div class="forum-body">
-    <div class="forum-posts">
-      <div class="post" *ngFor="let article of articles">
-        <a (click)="showArticle(article.id)" style="color: rgb(0, 81, 255);">Title: {{ article.title }}</a>
-        <p >Content: {{ article.content }}</p>
-        <img style="width: 200px;height: 200px;" [src]="article.imageUrl" alt="{{ article.title }}">
-        <!--<h4>Number of Views: {{article.nbviews}}</h4>
-        <h4>Number of Likes: {{article.nblike}}</h4>
-        <h4>Number of Dislikes: {{article.nbdislike}}</h4>
-        <h4>Number of Comments: {{article.nbcomments}}</h4> -->
-        <h4>Tags: {{article.tags}}</h4>
-        <!-- <div>
-          <label><b style="color: brown;">Comments: </b></label> <ul>
-              <li *ngFor="let comment of comment">
-                  <p>{{ comment.content }}</p>
-              </li>
-          </ul>
-      </div> -->
-      <h4>Likes: {{article.nblike}} Dislikes: {{article.nbdislike}} Comments: {{article.nbcomments}}</h4>
-        <div class="post-footer">
-          <button type="button" (click)="deleteArticle(article.id)">Delete</button>
-        </div>
-        <button class="like-button" (click)="incrementLikes(article)">
-          <i class="fas fa-heart"></i> {{ article.nbrlikes }}
-        </button>
-      </div>
+
+
+  <div class="discussion-forum">
+    <div class="forum-header">
+      <h1>DISCUSSION</h1>
     </div>
-   
+    <div class="back-button" style="padding-top: 20px; text-align: right;">
+      <button routerLink="/comment-add" class="home-button" style="background-color:darkblue;" >
+        Add a comment
+      </button>
+    </div>
+    <div class="forum-body">
+      <div class="forum-posts">
+<h3  style="color:crimson;"> Article Details</h3>
+<div>
+  <div>
+      <label><b style="color: brown;">Title: </b></label> {{article.title}}
   </div>
+  <div>
+      <label><b style="color: brown;">Content: </b></label> {{article.content}}
+  </div>
+  <div>
+      <label><b style="color: brown;">Number of views: </b></label> {{article.nbviews}}
+  </div>
+  <div>
+      <label><b style="color: brown;">Number of Likes: </b></label> {{article.nblike}}
+      
+  </div>
+  <div>
+      <label><b style="color: brown;">Number of Dislikes: </b></label> {{article.nbdislike}}
+  </div>
+  <div>
+      <label><b style="color: brown;">Number of Comments: </b></label> {{article.nbcomments}}
+  </div>
+  <div>
+    <img style="width: 200px;height: 200px;" [src]="article.imageUrl" alt="{{ article.title }}">
+  </div>
+  <div>
+      <label><b style="color: brown;">Comments: </b></label> <ul>
+          <li *ngFor="let comment of comments">
+              <p>{{ comment.content }}</p>
+          </li>
+      </ul>
+  </div> 
+  
 </div>
-</div>
-</body>
+                  </div>
+              </div>
+    </div>
+    </div>
+    </body>
