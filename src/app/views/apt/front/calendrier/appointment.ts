@@ -9,6 +9,7 @@ export class Appointment {
     prix!: number;
     pet!:number;
     doctor!:number;
+    user!:number;
 
 }
 

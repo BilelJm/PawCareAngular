@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PetService } from '../pet.service';
 import { Pet } from '../pet';
+import { StorageService } from 'src/app/views/auth/_services/storage.service';
 
 @Component({
   selector: 'app-list-pets',
@@ -17,13 +18,13 @@ export class ListPetsComponent implements OnInit {
   name: string='';
   confirmDelete: { [id: number]: boolean } = {};
 
-constructor(private petService:PetService,private router: Router,private http: HttpClient){}
+constructor(private petService:PetService,private router: Router,private http: HttpClient,private storageService:StorageService){}
 
   ngOnInit(): void {
     this.getPets();
   }
   private getPets() {
-    this.petService.getPetsbyUserid(2).subscribe(data => {
+    this.petService.getPetsbyUserid(this.storageService.getUser().id).subscribe(data => {
       this.pets = data
         .reduce((accumulator, currentValue) => accumulator.concat(currentValue), [])
         .filter((pet, index, self) => {

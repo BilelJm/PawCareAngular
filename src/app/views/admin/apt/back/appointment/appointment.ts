@@ -12,5 +12,6 @@ export class Appointment {
     prix!: number;
     pet!:Pet
     doctor!:User;
+    user!:User;
     
 }

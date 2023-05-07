@@ -25,8 +25,8 @@ export class AppointmentService {
     return this.http.delete(`${this.apiUrl+"deleteAppointment/"}${id}`);
   }
 
-  getAptByUserid():Observable<any>{
-    return this.http.get(`${this.apiUrl+"getAppointmentsByUserId/2"}`);
+  getAptByUserid(id:number):Observable<any>{
+    return this.http.get(`${this.apiUrl+"getAppointmentsByUserId"}/${id}`);
   }
 
   
@@ -36,6 +36,11 @@ export class AppointmentService {
   }
   getDoctorByAppointmentId(id: number): Observable<any>{
     return this.http.get(`http://localhost:8080/api/auth/GetDoctorByAptId/${id}`);
+  }
+  getIdByUsername(username:String): Observable<number>
+  {
+    return this.http.get<number>(`http://localhost:8080/api/auth/getUserIdbyUsername/${username}`);
+
   }
 
 }

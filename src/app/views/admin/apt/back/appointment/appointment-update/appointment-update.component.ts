@@ -23,6 +23,7 @@ export class AppointmentUpdateComponent implements OnInit {
     private router: Router,private petService:PetService,private userService:UserService, private toastr: ToastrService) {
       this.appointment.pet = new Pet();
       this.appointment.doctor=new User();
+
      }
      
      @Input()
@@ -49,6 +50,7 @@ export class AppointmentUpdateComponent implements OnInit {
 
   onSubmit(){
     this.appointmentService.updateAppointment(this.id, this.appointment).subscribe( data =>{
+
       this.toastr.success('Appointment updated successfully.', 'Success');
 
       this.goToAppointmentList();
