@@ -29,6 +29,7 @@ import { CalendrierComponent } from "./views/apt/front/calendrier/calendrier.com
 import { ListPetsComponent } from "./views/apt/front/pet/list-pets/list-pets.component";
 import { AddPetComponent } from "./views/apt/front/pet/add-pet/add-pet.component";
 import { UpdatePetComponent } from "./views/apt/front/pet/update-pet/update-pet.component";
+import { UserListComponent } from "./views/admin/users/user-list/user-list.component";
 
 const routes: Routes = [
   // admin views
@@ -40,6 +41,7 @@ const routes: Routes = [
       { path: "settings", component: SettingsComponent },
       { path: "tables", component: TablesComponent },
       { path: "maps", component: MapsComponent },
+      { path: "users", component: UserListComponent },
 
       //Appointment-Management
 

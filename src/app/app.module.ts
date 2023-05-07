@@ -72,6 +72,7 @@ import { UpdatePetComponent } from "./views/apt/front/pet/update-pet/update-pet.
 import {NgxPaginationModule} from 'ngx-pagination';
 import {Ng2OrderModule} from 'ng2-order-pipe';
 import { ToastrModule } from 'ngx-toastr';
+import { UserListComponent } from './views/admin/users/user-list/user-list.component';
 
 registerLicense('"Mgo+DSMBaFt+QHFqVkNrWU5FdUBAXWFKblJ0T2ZcdV15ZDU7a15RRnVfRlxgSH1Wd0VqUH5ccA==;Mgo+DSMBPh8sVXJ1S0d+X1RPc0BDXnxLflF1VWJbdVt1flZPcDwsT3RfQF5jTX9Qd0ZmWH9XeXZQRg==;ORg4AjUWIQA/Gnt2VFhhQlJBfVpdXGBWfFN0RnNYfVR1cV9FaUwxOX1dQl9gSXpSdURgXH5eeX1WTmA=;MTcxMzc5NkAzMjMxMmUzMTJlMzMzNW8wQlZ0cm9QcERrT3NTcFh6aXFyRDhRWDB1Rk8yL0tGTC9xVTBlWTF3TG89;MTcxMzc5N0AzMjMxMmUzMTJlMzMzNWJaL2xaQlRWZDNlM3N3c25uMzFxSGo3Y1BUaThoRDY2M1QxMFlCSWIwWTA9;NRAiBiAaIQQuGjN/V0d+XU9Hc1RHQmJKYVF2R2BJflx6cVBMY1VBJAtUQF1hSn5Xd0ZiWnpfcH1cT2lc;MTcxMzc5OUAzMjMxMmUzMTJlMzMzNVZsS2tXbEhZUmRScjVObEVRWGRmUXNheS84cWtTYlVabzRrSHEzRENtb0E9;MTcxMzgwMEAzMjMxMmUzMTJlMzMzNUVKRlowNG5lTE1jK2JrcEFzZW9DNDdJaTZYRSsxdkRsWmZUTjdOMFlhajg9;Mgo+DSMBMAY9C3t2VFhhQlJBfVpdXGBWfFN0RnNYfVR1cV9FaUwxOX1dQl9gSXpSdURgXH5fcHRTQmA=;MTcxMzgwMkAzMjMxMmUzMTJlMzMzNWd2Y0s5UExMVTR3bll1bWt3djhuTmF6Zk1KNWd5TmRjWmxBN0s0VytiYW89;MTcxMzgwM0AzMjMxMmUzMTJlMzMzNWJYYmJGVjY0MEhYMWY0cGhvQTJhdmhKOEpKY2lyT29jZFFMcE9YdTZaV1k9;MTcxMzgwNEAzMjMxMmUzMTJlMzMzNVZsS2tXbEhZUmRScjVObEVRWGRmUXNheS84cWtTYlVabzRrSHEzRENtb0E9');
 
@@ -122,7 +123,8 @@ registerLicense('"Mgo+DSMBaFt+QHFqVkNrWU5FdUBAXWFKblJ0T2ZcdV15ZDU7a15RRnVfRlxgSH
     CalendrierComponent,
     AddPetComponent,
     ListPetsComponent,
-    UpdatePetComponent
+    UpdatePetComponent,
+    UserListComponent
   ],
   imports: [BrowserModule, AppRoutingModule, ScheduleModule ,RecurrenceEditorModule,HttpClientModule,
   FormsModule, 
