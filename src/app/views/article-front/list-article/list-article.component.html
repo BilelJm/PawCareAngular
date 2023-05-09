@@ -1,0 +1,170 @@
+<style>
+  .body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+  
+  .back-button {
+    text-align: left;
+  }
+  
+  .home-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .home-button:hover {
+    background-color: #45a049;
+  }
+  
+  .discussion-forum {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .forum-header {
+    text-align: center;
+  }
+  
+  .forum-posts {
+    margin-bottom: 30px;
+  }
+  
+  .post {
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .post-title {
+    font-size: 24px;
+  }
+  
+  .post-content {
+    font-size: 16px;
+  }
+  
+  .post-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .post-footer {
+    text-align: right;
+  }
+  
+  button[type=button] {
+    background-color: #f44336;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button[type=button]:hover {
+    background-color: #e5380f;
+  }
+  
+  .new-post {
+    border-top: 1px solid #f0f0f0;
+    padding-top: 20px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .input-label {
+    display: block;
+    margin-bottom: 6px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group.mb-4 {
+    margin-bottom: 30px;
+  }
+  
+  .btn-success {
+    background-color: #4CAF50;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-success:hover {
+    background-color: #45a049;
+  }
+</style>
+
+
+<body class="body">
+<app-index-navbar style="margin-top: 200px;"></app-index-navbar>
+<div style="padding-top: 100px;">
+<!-- discussion-forum.component.html -->
+<div class="back-button" style="margin-left: 50px;">
+  <button routerLink="" class="home-button" >
+    Back to Home
+  </button>
+</div>
+
+
+<div class="discussion-forum">
+  <div class="forum-header">
+    <h1>DISCUSSION</h1>
+  </div>
+  <div class="back-button" style="padding-top: 20px; text-align: right;">
+    <button routerLink="/create-article" class="home-button" style="background-color:darkblue;" >
+      Add Article
+    </button>
+  </div>
+  
+  <div class="forum-body">
+    <div class="forum-posts">
+      <div class="post" *ngFor="let article of articles">
+        <a (click)="showArticle(article.id)" style="color: rgb(0, 81, 255);">Title: {{ article.title }}</a>
+        <p >Content: {{ article.content }}</p>
+        <img style="width: 200px;height: 200px;" [src]="article.imageUrl" alt="{{ article.title }}">
+        <!--<h4>Number of Views: {{article.nbviews}}</h4>
+        <h4>Number of Likes: {{article.nblike}}</h4>
+        <h4>Number of Dislikes: {{article.nbdislike}}</h4>
+        <h4>Number of Comments: {{article.nbcomments}}</h4> -->
+        <h4>Tags: {{article.tags}}</h4>
+        <!-- <div>
+          <label><b style="color: brown;">Comments: </b></label> <ul>
+              <li *ngFor="let comment of comment">
+                  <p>{{ comment.content }}</p>
+              </li>
+          </ul>
+      </div> -->
+      <h4>Likes: {{article.nblike}} Dislikes: {{article.nbdislike}} Comments: {{article.nbcomments}}</h4>
+        <div class="post-footer">
+          <button type="button" (click)="deleteArticle(article.id)">Delete</button>
+        </div>
+        <button class="like-button" (click)="incrementLikes(article)">
+          <i class="fas fa-heart"></i> {{ article.nbrlikes }}
+        </button>
+      </div>
+    </div>
+   
+  </div>
+</div>
+</div>
+</body>

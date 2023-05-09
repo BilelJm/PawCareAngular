@@ -18,7 +18,8 @@ export class AppointmentAddComponent implements OnInit {
   pets: Pet[] = [];
   users: User[] = [];
 
-  constructor(private appointmentService: AppointmentService,private router: Router,private petService:PetService,private userService:UserService, private toastr: ToastrService){
+  constructor(private appointmentService: AppointmentService,private router: Router,private petService:PetService,private userService:UserService, 
+    private toastr: ToastrService){
     this.appointment.pet = new Pet(); 
     this.appointment.doctor=new User();
   }
