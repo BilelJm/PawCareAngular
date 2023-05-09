@@ -43,6 +43,17 @@ import { ArticleCreateComponent } from "./views/admin/article/article-create/art
 import { ArticleUpdateComponent } from "./views/admin/article/article-update/article-update.component";
 import { ArticleDetailsComponent } from "./views/admin/article/article-details/article-details.component";
 import { CommentListComponent } from "./views/admin/comment/comment-list/comment-list.component";
+import { HotelComponent } from "./views/admin/hotel-reservation/hotel/hotel.component";
+import { CreateHotelComponent } from "./views/admin/hotel-reservation/hotel-add/create-hotel/create-hotel.component";
+import { HotelUpdateComponent } from "./views/admin/hotel-reservation/hotel-update/hotel-update.component";
+import { ResListComponent } from "./views/admin/hotel-reservation/res-list/res-list.component";
+
+import { UpdateResComponent } from "./views/admin/hotel-reservation/update-res/update-res.component";
+import { StatisticComponent } from "./views/admin/hotel-reservation/statistic/statistic.component";
+import { ResCreateComponent } from "./views/admin/hotel-reservation/res-create/res-create.component";
+import { HotelhomeComponent } from "./views/hotel-reservation/hotelhome/hotelhome.component";
+import { HoteldetailsComponent } from "./views/hotel-reservation/hoteldetails/hoteldetails.component";
+import { ReservationComponent } from "./views/hotel-reservation/reservation/reservation.component";
 
 const routes: Routes = [
   // admin views
@@ -54,6 +65,15 @@ const routes: Routes = [
       { path: "settings", component: SettingsComponent },
       { path: "tables", component: TablesComponent },
       { path: "maps", component: MapsComponent },
+
+      //hotel back-office
+      { path: "hotel-res",component: HotelComponent},
+      { path: "hotel-add",component: CreateHotelComponent},
+      { path: "hotel-update/:id",component: HotelUpdateComponent},
+      { path: "res-list",component: ResListComponent},
+      { path: "res-create", component: ResCreateComponent},
+      { path: "res-update/:id", component: UpdateResComponent},
+      { path: "statistics", component: StatisticComponent},
 
 
       //Appointment-Management
@@ -97,6 +117,12 @@ const routes: Routes = [
   
     ],
   },
+  // hotels front
+  { path:"hotels", component: HotelhomeComponent},
+  { path:"hotels/detail/:id", component: HoteldetailsComponent},
+
+  // reservations front
+  { path:"reservations/:id", component: ReservationComponent},
   // no layout views
   { path: "profile", component: ProfileComponent },
   { path: "landing", component: LandingComponent },

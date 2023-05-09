@@ -1,0 +1,50 @@
+<app-index-navbar>  </app-index-navbar>
+<section class="site-hero overlay page-inside" style="background-image: url(/assets/img/hero_2.jpg)">
+    <div class="container">
+      <div class="row site-hero-inner justify-content-center align-items-center">
+        <div class="col-md-10 text-center">
+          <h1 class="heading" >Our Hotel</h1>
+          <p class="sub-heading mb-5" >Enjoy your stay.</p>
+        </div>
+      </div> 
+    </div>
+</section>
+
+<section class="bg-light">
+    <div class="half md:flex flex-wrap">
+      <div class="image md:w-1/2 bg-cover bg-center"  style="background-image: url('http://localhost/img/{{hotels.data}}.jpg');"></div>
+      <div class="text md:w-1/2 md:pl-12 pt-12 md:pt-0" >
+        <h2 class="text-3xl font-bold mb-6" [(ngModel)]="hotels.nomHotel" >{{hotels.nomHotel}} </h2>
+        <p class="text-gray-700 mb-4">A pet hotel is a facility that offers temporary accommodation and care for pets, typically cats and dogs, while their owners are away. These hotels provide a range of services such as feeding, exercising, grooming, and medical care.</p>
+        <p class="text-gray-700 mb-4">The pets are usually housed in individual kennels or suites, with some hotels offering more luxurious options like private rooms or spa treatments. The goal of a pet hotel is to provide a safe and comfortable environment for pets while giving their owners peace of mind knowing their pets are well taken care of.</p>
+        
+        <p class="mt-5"><a href="#" class="btn btn-primary uppercase" (click)="Reserva(hotels.hotelId)">Make a Reservation</a></p>
+      </div>
+    </div>
+  
+    <div class="half md:flex flex-wrap">
+      <div class="image md:w-1/2 bg-cover bg-center order-2"   style="background-image: url('/assets/img/map.jpg');"></div>
+      <div class="text md:w-1/2 md:pr-12 pt-12 md:pt-0" >
+        <h2 class="text-3xl font-bold mb-6">{{hotels.address}}</h2>
+        
+        <p class="text-gray-700 mb-4">Welcome to our pet hotel! We're excited to provide a safe and comfortable stay for your furry friend. Our hotel is not only equipped with state-of-the-art amenities and caring staff, but we're also located in one of the most picturesque locations in the area.</p>
+        <p class="text-gray-700 mb-4">From here, you'll have access to beautiful parks and trails for you and your pet to explore. We highly encourage you to check out our location and see for yourself why we're the best choice for your pet's next vacation. We look forward to seeing you soon!</p>
+        
+        <p class="mt-5"><a href="#" class="btn btn-primary uppercase">Check location</a></p>
+      </div>
+    </div>
+
+    <div class="half md:flex flex-wrap">
+        <div class="image md:w-1/2 bg-cover bg-center"  style="background-image: url('/assets/img/phone.jpg');"></div>
+        <div class="text md:w-1/2 md:pl-12 pt-12 md:pt-0" >
+          <h2 class="text-3xl font-bold mb-6" >Give us a call </h2>
+          <p class="text-gray-700 mb-4"> We understand that sometimes you may have questions or concerns that need to be addressed quickly and efficiently. That's why we encourage you to give us a call if you ever need any assistance or have any inquiries about our services.</p>
+          <p class="text-gray-700 mb-4">Don't hesitate to reach out to us at any time. Our Phone Number: {{hotels.numtel}}</p>
+          
+          
+        </div>
+      </div>
+  
+</section>
+  
+
