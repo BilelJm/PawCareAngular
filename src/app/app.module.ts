@@ -50,7 +50,7 @@ import { UserDropdownComponent } from "./components/dropdowns/user-dropdown/user
 import { PetListComponent } from "./views/admin/apt/back/pet/pet-list/pet-list.component";
 import { HttpClientModule } from "@angular/common/http";
 import { PetAddComponent } from './views/admin/apt/back/pet/pet-add/pet-add.component';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { PetUpdateComponent } from './views/admin/apt/back/pet/pet-update/pet-update.component';
 import { AppointmentListComponent } from './views/admin/apt/back/appointment/appointment-list/appointment-list.component';
 import { AppointmentAddComponent } from './views/admin/apt/back/appointment/appointment-add/appointment-add.component';
@@ -72,7 +72,30 @@ import { UpdatePetComponent } from "./views/apt/front/pet/update-pet/update-pet.
 import {NgxPaginationModule} from 'ngx-pagination';
 import {Ng2OrderModule} from 'ng2-order-pipe';
 import { ToastrModule } from 'ngx-toastr';
-import { UserListComponent } from './views/admin/users/user-list/user-list.component';
+import { EmailFormComponent } from "./views/adop front/Adoption/email-form/email-form.component";
+import { AdoptionListFrontComponent } from "./views/adop front/Adoption/adoption-list-front/adoption-list-front.component";
+import { UpdateTrainingComponent } from "./views/admin/adop back/Training/update-training/update-training.component";
+import { CreateTrainingComponent } from "./views/admin/adop back/Training/create-training/create-training.component";
+import { TrainingListComponent } from "./views/admin/adop back/Training/training-list/training-list.component";
+import { UpdateAdoptionComponent } from "./views/admin/adop back/Adoption/update-adoption/update-adoption.component";
+import { CreateAdoptionComponent } from "./views/admin/adop back/Adoption/create-adoption/create-adoption.component";
+import { AdoptionListComponent } from "./views/admin/adop back/Adoption/adoption-list/adoption-list.component";
+import { TrainingListFrontComponent } from "./views/adop front/Training/training-list-front/training-list-front.component";
+import { TableDropdownAdoptionComponent } from "./components/dropdowns/table-dropdown-adoption/table-dropdown-adoption";
+import { TableDropdownTrainingComponent } from "./components/dropdowns/table-dropdown-training/table-dropdown-training";
+import { RouterModule } from "@angular/router";
+import { ArticleListComponent } from "./views/admin/article/article-list/article-list.component";
+import { ArticleCreateComponent } from "./views/admin/article/article-create/article-create.component";
+import { ArticleUpdateComponent } from "./views/admin/article/article-update/article-update.component";
+import { ArticleDeleteComponent } from "./views/admin/article/article-delete/article-delete.component";
+import { ArticleDetailsComponent } from "./views/admin/article/article-details/article-details.component";
+import { CommentListComponent } from "./views/admin/comment/comment-list/comment-list.component";
+import { CreateArticleComponent } from "./views/article-front/create-article/create-article.component";
+import { ListArticleComponent } from "./views/article-front/list-article/list-article.component";
+import { DeleteArticleComponent } from "./views/article-front/delete-article/delete-article.component";
+import { UpdateArticleComponent } from "./views/article-front/update-article/update-article.component";
+import { DetailsArticleComponent } from "./views/article-front/details-article/details-article.component";
+import { AddCommentComponent } from "./views/article-front/add-comment/add-comment.component";
 
 registerLicense('"Mgo+DSMBaFt+QHFqVkNrWU5FdUBAXWFKblJ0T2ZcdV15ZDU7a15RRnVfRlxgSH1Wd0VqUH5ccA==;Mgo+DSMBPh8sVXJ1S0d+X1RPc0BDXnxLflF1VWJbdVt1flZPcDwsT3RfQF5jTX9Qd0ZmWH9XeXZQRg==;ORg4AjUWIQA/Gnt2VFhhQlJBfVpdXGBWfFN0RnNYfVR1cV9FaUwxOX1dQl9gSXpSdURgXH5eeX1WTmA=;MTcxMzc5NkAzMjMxMmUzMTJlMzMzNW8wQlZ0cm9QcERrT3NTcFh6aXFyRDhRWDB1Rk8yL0tGTC9xVTBlWTF3TG89;MTcxMzc5N0AzMjMxMmUzMTJlMzMzNWJaL2xaQlRWZDNlM3N3c25uMzFxSGo3Y1BUaThoRDY2M1QxMFlCSWIwWTA9;NRAiBiAaIQQuGjN/V0d+XU9Hc1RHQmJKYVF2R2BJflx6cVBMY1VBJAtUQF1hSn5Xd0ZiWnpfcH1cT2lc;MTcxMzc5OUAzMjMxMmUzMTJlMzMzNVZsS2tXbEhZUmRScjVObEVRWGRmUXNheS84cWtTYlVabzRrSHEzRENtb0E9;MTcxMzgwMEAzMjMxMmUzMTJlMzMzNUVKRlowNG5lTE1jK2JrcEFzZW9DNDdJaTZYRSsxdkRsWmZUTjdOMFlhajg9;Mgo+DSMBMAY9C3t2VFhhQlJBfVpdXGBWfFN0RnNYfVR1cV9FaUwxOX1dQl9gSXpSdURgXH5fcHRTQmA=;MTcxMzgwMkAzMjMxMmUzMTJlMzMzNWd2Y0s5UExMVTR3bll1bWt3djhuTmF6Zk1KNWd5TmRjWmxBN0s0VytiYW89;MTcxMzgwM0AzMjMxMmUzMTJlMzMzNWJYYmJGVjY0MEhYMWY0cGhvQTJhdmhKOEpKY2lyT29jZFFMcE9YdTZaV1k9;MTcxMzgwNEAzMjMxMmUzMTJlMzMzNVZsS2tXbEhZUmRScjVObEVRWGRmUXNheS84cWtTYlVabzRrSHEzRENtb0E9');
 
@@ -124,16 +147,50 @@ registerLicense('"Mgo+DSMBaFt+QHFqVkNrWU5FdUBAXWFKblJ0T2ZcdV15ZDU7a15RRnVfRlxgSH
     AddPetComponent,
     ListPetsComponent,
     UpdatePetComponent,
-    UserListComponent
+
+    TableDropdownTrainingComponent,
+    TableDropdownAdoptionComponent,
+
+    AdoptionListComponent,
+    CreateAdoptionComponent,
+    UpdateAdoptionComponent,
+
+    TrainingListComponent,
+    CreateTrainingComponent,
+    UpdateTrainingComponent,
+
+    TrainingListFrontComponent,
+
+    AdoptionListFrontComponent,
+
+    EmailFormComponent,
+
+    ArticleListComponent,
+    ArticleCreateComponent,
+    ArticleUpdateComponent,
+    ArticleDeleteComponent,
+    ArticleDetailsComponent,
+    CommentListComponent,
+    CreateArticleComponent,
+    ListArticleComponent,
+    DeleteArticleComponent,
+    UpdateArticleComponent,
+    DetailsArticleComponent,
+    AddCommentComponent
+    
+  
   ],
   imports: [BrowserModule, AppRoutingModule, ScheduleModule ,RecurrenceEditorModule,HttpClientModule,
-  FormsModule, 
+    FormsModule, 
   DropDownListModule,
   DateTimePickerModule,
   BrowserAnimationsModule,
   NgxPaginationModule,
   Ng2OrderModule,
   ToastrModule.forRoot(),
+  ReactiveFormsModule,
+  RouterModule
+
 
 ],
   providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService],

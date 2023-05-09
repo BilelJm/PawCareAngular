@@ -1,5 +1,4 @@
 import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
 
 // layouts
 import { AdminComponent } from "./layouts/admin/admin.component";
@@ -29,7 +28,21 @@ import { CalendrierComponent } from "./views/apt/front/calendrier/calendrier.com
 import { ListPetsComponent } from "./views/apt/front/pet/list-pets/list-pets.component";
 import { AddPetComponent } from "./views/apt/front/pet/add-pet/add-pet.component";
 import { UpdatePetComponent } from "./views/apt/front/pet/update-pet/update-pet.component";
-import { UserListComponent } from "./views/admin/users/user-list/user-list.component";
+import { AdoptionListComponent } from "./views/admin/adop back/Adoption/adoption-list/adoption-list.component";
+import { UpdateAdoptionComponent } from "./views/admin/adop back/Adoption/update-adoption/update-adoption.component";
+import { CreateAdoptionComponent } from "./views/admin/adop back/Adoption/create-adoption/create-adoption.component";
+import { TrainingListComponent } from "./views/admin/adop back/Training/training-list/training-list.component";
+import { UpdateTrainingComponent } from "./views/admin/adop back/Training/update-training/update-training.component";
+import { CreateTrainingComponent } from "./views/admin/adop back/Training/create-training/create-training.component";
+import { TrainingListFrontComponent } from "./views/adop front/Training/training-list-front/training-list-front.component";
+import { AdoptionListFrontComponent } from "./views/adop front/Adoption/adoption-list-front/adoption-list-front.component";
+import { EmailFormComponent } from "./views/adop front/Adoption/email-form/email-form.component";
+import { RouterModule, Routes } from "@angular/router";
+import { ArticleListComponent } from "./views/admin/article/article-list/article-list.component";
+import { ArticleCreateComponent } from "./views/admin/article/article-create/article-create.component";
+import { ArticleUpdateComponent } from "./views/admin/article/article-update/article-update.component";
+import { ArticleDetailsComponent } from "./views/admin/article/article-details/article-details.component";
+import { CommentListComponent } from "./views/admin/comment/comment-list/comment-list.component";
 
 const routes: Routes = [
   // admin views
@@ -41,7 +54,7 @@ const routes: Routes = [
       { path: "settings", component: SettingsComponent },
       { path: "tables", component: TablesComponent },
       { path: "maps", component: MapsComponent },
-      { path: "users", component: UserListComponent },
+
 
       //Appointment-Management
 
@@ -54,6 +67,22 @@ const routes: Routes = [
       { path: "add-pet", component: PetAddComponent},
       {path:"update-pet/:id",component:PetUpdateComponent},
 
+      //adoption-training
+      { path: "adoption-list", component: AdoptionListComponent },
+      {path: 'update-Adoption/:id', component: UpdateAdoptionComponent},
+      {path: 'create-Adoption', component: CreateAdoptionComponent},
+
+      { path: 'training-list',        component: TrainingListComponent },
+      {path: 'update-Training/:id', component: UpdateTrainingComponent},
+      {path: 'create-Training', component: CreateTrainingComponent},
+
+            //Articles
+            { path: 'article-list',        component: ArticleListComponent },
+            { path: 'article-create',        component: ArticleCreateComponent },
+            { path: 'article-update/:id',        component: ArticleUpdateComponent },
+            { path: 'article-details/:id',        component: ArticleDetailsComponent },
+            { path: 'comment-list',        component: CommentListComponent },
+
       { path: "", redirectTo: "dashboard", pathMatch: "full" },
     ],
   },
@@ -65,11 +94,13 @@ const routes: Routes = [
       { path: "login", component: LoginComponent },
       { path: "register", component: RegisterComponent },
       { path: "", redirectTo: "login", pathMatch: "full" },
+  
     ],
   },
   // no layout views
   { path: "profile", component: ProfileComponent },
   { path: "landing", component: LandingComponent },
+
 
   //calendrier
   { path: 'calendrier', component: CalendrierComponent },
@@ -78,6 +109,12 @@ const routes: Routes = [
   { path: 'pet', component: ListPetsComponent },
   { path: 'pet/add', component: AddPetComponent },
   {path:"pet/update-pet/:id",component:UpdatePetComponent},
+
+ //trainingadoption front
+  { path: "training-list-front", component: TrainingListFrontComponent },
+  { path: "adoption-list-front", component: AdoptionListFrontComponent },
+
+  { path: "email-form", component: EmailFormComponent },
 
   
 

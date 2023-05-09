@@ -1,0 +1,93 @@
+  .container {
+    margin-top: 100px;
+    margin-bottom: 20px;
+  }
+  
+  app-footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+
+  .post-actions button {
+    padding: 10px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #4CAF50;
+    cursor: pointer;
+  }
+  
+  .post-actions button:hover {
+    background-color: #3e8e41;
+  }
+
+  .post-actions button[disabled] {
+    background-color: gray;
+    pointer-events: none;
+  }
+  
+
+  .card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 2px rgba(0,0,0,.1);
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .card-subtitle {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  
+  .card-text {
+    margin-bottom: 5px;
+  }
+  
+  .post-actions {
+    margin-top: 10px;
+  }
+  
+  .content-wrapper {
+    padding: 100px;
+    
+  }
+
+
+  .chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 250px;
+  }
+  
+  .bar {
+    width: 50px;
+    margin: 0 20px;
+    background-color: #007bff;
+    position: relative;
+    transition: height 0.5s ease-out;
+  }
+  
+  .bar .label {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    color: #fff;
+  }
+  .chart-label {
+    text-align: center;
+    margin-top: 5px;
+  }
+
+
+  
+    

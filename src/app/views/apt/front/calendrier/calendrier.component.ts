@@ -5,7 +5,6 @@ import { DropDownList } from '@syncfusion/ej2-angular-dropdowns';
 import { DateTimePicker } from '@syncfusion/ej2-calendars';
 import { Pet } from 'src/app/views/admin/apt/back/pet/pet';
 import { PetService } from 'src/app/views/admin/apt/back/pet/pet.service';
-import { StorageService } from 'src/app/views/auth/_services/storage.service';
 
 
 
@@ -29,7 +28,7 @@ export class CalendrierComponent implements OnInit {
   pets: Pet[] = [];
   petDropdown!: DropDownList;
   public availableDoctors: any[] = [];
-  public idUser: number;
+  petId:any;
 
 
   private locationDropdown!: DropDownList | null;
@@ -71,24 +70,17 @@ export class CalendrierComponent implements OnInit {
     '</tbody></table></div>';
 
 
-  constructor(private appointmentService: AppointmentService, private petService: PetService,private storageService:StorageService) { }
+  constructor(private appointmentService: AppointmentService, private petService: PetService) { }
 
   ngOnInit(): void {
     this.fetchAppointments();
     this.fetchPets();
-    const user = this.storageService.getUser();
-    console.log('User object:', user);
-    
   }
-
-
-  
-  
   
   
 
   fetchAppointments(): void {
-    this.appointmentService.getAptByUserid(this.storageService.getUser().id).subscribe(
+    this.appointmentService.getAptByUserid().subscribe(
       (appointments) => {
         this.data = appointments.map((appointment: { idAppointment: any; reason: any; startDate: string | number | Date; endDate: string | number | Date; location: number, notes: string,pet:number }) => {
           return {
@@ -163,7 +155,8 @@ export class CalendrierComponent implements OnInit {
       const petOptions = this.pets.map((pet: Pet) => ({
         text: pet.name,
         value: pet.idPet,
-      }));
+      }
+      ));
 
       this.petDropdown = new DropDownList({
         dataSource: petOptions,
@@ -289,7 +282,6 @@ export class CalendrierComponent implements OnInit {
           idAppointment: 0,
           pet: { idPet: this.petDropdown?.value as number },
           doctor: { id: this.doctorDropdown?.value as number },
-          user:{ id: this.storageService.getUser().id as number },
         };
 
         console.log(appointmentData);
@@ -341,8 +333,6 @@ export class CalendrierComponent implements OnInit {
           idAppointment: eventData['Id'],
           pet: { idPet: this.petDropdown?.value as number },
           doctor: { id: this.doctorDropdown?.value as number },
-          user:{ id: this.storageService.getUser().id as number },
-
 
         };
         if (eventStartDate >= dayAhead) {

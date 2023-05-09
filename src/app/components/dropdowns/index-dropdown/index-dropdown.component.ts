@@ -1,10 +1,5 @@
-
-import { Component, AfterViewInit, ViewChild, ElementRef, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { createPopper } from "@popperjs/core";
-import { Router } from '@angular/router';
-import { UserapiService } from '../../../views/admin/users/_service/userapi.service';
-import{ AuthService } from '../../../views/auth/_services/auth.service';
-import{ StorageService } from '../../../views/auth/_services/storage.service';
 
 @Component({
   selector: "app-index-dropdown",
@@ -15,11 +10,7 @@ export class IndexDropdownComponent implements OnInit {
   @ViewChild("btnDropdownRef", { static: false }) btnDropdownRef: ElementRef;
   @ViewChild("popoverDropdownRef", { static: false })
   popoverDropdownRef: ElementRef;
-  name = this.storageService.getUser().username;
-
-  //id= this.storageService.getUser().id;
-  ngOnInit(): void {
-  }
+  ngOnInit() {}
   toggleDropdown(event) {
     event.preventDefault();
     if (this.dropdownPopoverShow) {
@@ -37,22 +28,5 @@ export class IndexDropdownComponent implements OnInit {
         placement: "bottom-start",
       }
     );
-  }
-  constructor(
-    private router: Router,
-    public userService: UserapiService,
-    public storageService: StorageService
-  ) { }
-
-
-
-  public isLoggedIn() {
-    console.log(this.name);
-    return this.storageService.isLoggedIn();
-  }
-
-  public logout() {
-    this.storageService.clean();
-    this.router.navigate(['/']);
   }
 }

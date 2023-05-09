@@ -1,0 +1,161 @@
+<style>
+  .body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+  
+  .back-button {
+    text-align: center;
+  }
+  
+  .home-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .home-button:hover {
+    background-color: #45a049;
+  }
+  
+  .discussion-forum {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .forum-header {
+    text-align: center;
+  }
+  
+  .forum-posts {
+    margin-bottom: 30px;
+  }
+  
+  .post {
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .post-title {
+    font-size: 24px;
+  }
+  
+  .post-content {
+    font-size: 16px;
+  }
+  
+  .post-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .post-footer {
+    text-align: right;
+  }
+  
+  button[type=button] {
+    background-color: #f44336;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button[type=button]:hover {
+    background-color: #e5380f;
+  }
+  
+  .new-post {
+    border-top: 1px solid #f0f0f0;
+    padding-top: 20px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .input-label {
+    display: block;
+    margin-bottom: 6px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group.mb-4 {
+    margin-bottom: 30px;
+  }
+  
+  .btn-success {
+    background-color: #4CAF50;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-success:hover {
+    background-color: #45a049;
+  }
+</style>
+
+
+<!--
+<body class="body">
+  <app-index-navbar style="margin-top: 200px;"></app-index-navbar>
+  <div class="discussion-forum" style="padding-top: 100px;">
+    <div class="forum-header">
+     article.component.html 
+
+<div *ngIf="article">
+<h1>{{ article.title }}</h1>
+<p>{{ article.content }}</p>
+
+<h2>Comments</h2>
+<ul>
+  <li *ngFor="let comment of article.comment">{{ comment.content }}</li>
+</ul>
+
+<form (submit)="addComment()">
+  <textarea [(ngModel)]="commentContent"></textarea>
+  <button type="submit">Add Comment</button>
+</form>
+</div>
+
+</div>
+</div>
+</body> -->
+<body>
+<div class="discussion-forum" style="padding-top: 100px;">
+  <div class="forum-header">
+    
+    <h2><b style="font-size:x-large; color: #e5380f;">Add Comment</b></h2>
+    
+    <form (ngSubmit)="addComment(article)" enctype="multipart/form-data" style="padding-top: 25px;">
+      <div class="form-group mb-4">
+        <label class="input-label">Content</label>
+        <textarea class="form-control" id="content" [(ngModel)]="comment.content" name="content"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-success">Submit</button>
+      </div>
+    </form>
+   
+  </div>
+</div>
+</body>
