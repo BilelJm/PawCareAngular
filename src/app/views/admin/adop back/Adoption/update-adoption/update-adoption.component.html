@@ -1,0 +1,67 @@
+
+
+<div
+  class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded"
+  [ngClass]="color === 'light' ? 'bg-white' : 'bg-red-900 text-white'"
+>
+  <div class="rounded-t mb-0 px-4 py-3 border-0">
+    <div class="flex flex-wrap items-center">
+      <div class="container">
+  
+
+      <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+        <h3
+          class="font-semibold text-lg"
+          [ngClass]="color === 'light' ? 'text-blueGray-700' : 'text-white'"
+        >
+        <h1>Update Adoption Request</h1>
+        <hr>
+        </h3>
+      </div>
+    </div>
+  </div>
+
+
+<div class="col-md-6 offset-md-3">
+    <form  [formGroup]="adoptionForm" (ngSubmit) = "onSubmit()">
+    
+       
+        <div class="form-group">
+          <input type="text" class="form-control" id="title" [(ngModel)] = "adoption.title"  formControlName="title"style="margin-bottom: 15px;width: 50%;">
+
+        </div>
+
+         
+        <div class="form-group">
+          <input type="text" class="form-control" id="description"  [(ngModel)] = "adoption.description"  formControlName="description"style="margin-bottom: 15px;width: 50%;">
+
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control" id="location"   [(ngModel)] = "adoption.location" formControlName="location" style="margin-bottom: 15px;width: 50%;">
+
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control" id="email"   [(ngModel)] = "adoption.email" formControlName="email" style="margin-bottom: 15px;width: 50%;">
+
+        </div>
+
+
+
+        <div class="form-group row">
+            <div class="col-sm-10">
+              <input type="file" class="form-control-file" id="picture" (change)="onFileSelected($event)">
+            </div>
+          </div>
+
+          <div class="post-actions">
+            <button type="submit" class="btn btn-danger red-button" [disabled]="!adoptionForm.valid" style="width: 50%;">Submit</button>
+          </div>
+              
+    </form>
+    </div> 
+
+    </div>
+    </div>
+

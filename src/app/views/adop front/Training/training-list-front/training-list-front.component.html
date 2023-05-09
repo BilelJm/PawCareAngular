@@ -1,0 +1,133 @@
+<app-index-navbar></app-index-navbar>
+
+<div class="content-wrapper">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1 class="text-center">Recent Trainings</h1>
+      <hr>
+      <!-- Add a search input field -->
+
+      
+      
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" [(ngModel)]="searchTerm" placeholder="Search trainings" style="width:90% ">  
+        
+          <select class="form-control" id="pet-filter" [(ngModel)]="selectedPet" style="width:10% ">
+            <option value="">All</option>
+            <option value="Cat">Cats</option>
+            <option value="Dog">Dogs</option>
+          </select>
+         
+      </div>
+      
+    </div>
+
+  </div>
+ 
+
+
+
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card-deck">
+        <div class="card" *ngFor="let training of filteredTrainings">
+          
+  <div
+  class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16"
+>
+  <div class="px-6">
+    <div class="flex flex-wrap justify-center">
+      <div class="w-full px-4 flex justify-center">
+      </div>
+      <div class="w-full px-4 text-center mt-20">
+        <div class="flex justify-center py-4 lg:pt-4 pt-8">
+          <div class="mr-4 p-3 text-center">
+          </div>
+          <div class="mr-4 p-3 text-center">
+          </div>
+          <div class="lg:mr-4 p-3 text-center">
+            <div class="card-body">
+              <h5 class="card-title font-bold text-lg">{{ training.title }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted font-bold">{{ 'Duration: ' + training.duration }}</h6>
+              <p class="card-text"><span class="font-bold">Description:</span> {{ training.description }}</p>
+              <p class="card-text"><span class="font-bold">This training is for</span> {{ training.type }}</p>
+              <p class="card-text"><span class="font-bold">Price:</span> {{ training.price }}</p>
+              <p class="card-text"><span class="font-bold">Places:</span> {{ training.nbrplaces }}</p>
+              <p class="card-text"><span class="font-bold">Date:</span> {{ training.cDate | date:'MMM d, yyyy' }}</p>              
+              <form>
+                <div class="form-group mb-4">
+                  <label class="block font-bold mb-2">Select your pet:</label>
+                  <div class="relative">
+                    <select class="form-select block appearance-none w-full bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow-sm leading-tight focus:outline-none focus:shadow-outline-blue focus:border-blue-300" id="pet" [(ngModel)]="selectedOption" required>
+                      <option value="" disabled selected hidden>Select a pet</option>
+                      <option *ngFor="let pet of pets" [value]="pet.idPet">{{ pet.name }}</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                      <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M9.292 12.292a1 1 0 01-1.414 0L4.293 8.707a1 1 0 011.414-1.414L10 10.586l4.293-4.293a1 1 0 011.414 1.414l-5 5z"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                
+              </form>
+
+              <div class="post-actions">
+                <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded mr-2" (click)="reportTraining(training.idTraining)">Report</button>
+                <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded" (click)="book(training.idTraining)"(click)="book(training.idTraining)" [disabled]="training.nbrplaces == 0">Reserve</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-12"> 
+    </div>
+    <div class="mt-10 py-10 border-t border-blueGray-200 text-center">
+      <div class="flex flex-wrap justify-center">
+        <div class="w-full lg:w-9/12 px-4">
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+          
+        </div>
+      </div>
+      <div class="text-center" *ngIf="filteredTrainings.length === 0">
+        <p>No trainings found.</p>
+      </div>
+      
+
+      
+     
+  
+
+     
+    </div>
+  </div>  
+
+  <div class="chart-container">
+    <div class="bar" [style.height.px]="dogTrainingCount * 10">
+      <span class="label">{{dogTrainingCount}}</span>
+    </div>
+    <div class="chart-label">Dog training</div> 
+  
+    <div class="bar" [style.height.px]="catTrainingCount * 10">
+      <span class="label">{{catTrainingCount}}</span>
+    </div>
+    <div class="chart-label">Cat training</div> 
+  </div>
+</div>
+
+
+
+
+
+
+<app-footer></app-footer>
