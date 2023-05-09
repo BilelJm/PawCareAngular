@@ -21,11 +21,11 @@ export class ReservationService {
     
     return this.httpClient.post(`${this.baseUrl+"addreservation"}`,reservation);
   }
-  createReservationtoo(reservation: Reservation, email:string): Observable<Object>{
+  createReservationtoo(reservation: Reservation, email:string, id: number): Observable<Object>{
     const data=new FormData();
     reservation.status="Confirmed";
     
-    return this.httpClient.post(`${this.baseUrl+"addreservation/"}${email}`,reservation);
+    return this.httpClient.post(`${this.baseUrl+"addreservation/"}${email+"/"}${id}`,reservation);
   }
   
   deleteReservation(id: number): Observable<Object>{

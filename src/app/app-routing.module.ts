@@ -29,6 +29,7 @@ import { HotelhomeComponent } from "./views/hotel-reservation/hotelhome/hotelhom
 import { HoteldetailsComponent } from "./views/hotel-reservation/hoteldetails/hoteldetails.component";
 import { Reservation } from "./views/admin/hotel-reservation/reservation";
 import { ReservationComponent } from "./views/hotel-reservation/reservation/reservation.component";
+import { StatisticComponent } from "./views/admin/hotel-reservation/statistic/statistic.component";
 
 const routes: Routes = [
   // admin views
@@ -46,6 +47,7 @@ const routes: Routes = [
       { path: "res-list",component: ResListComponent},
       { path: "res-create", component: CreateResComponent},
       { path: "res-update/:id", component: UpdateResComponent},
+      { path: "statistics", component: StatisticComponent},
       { path: "", redirectTo: "dashboard", pathMatch: "full" },
     ],
   },
@@ -65,7 +67,7 @@ const routes: Routes = [
   { path:"hotels/detail/:id", component: HoteldetailsComponent},
 
   // reservations front
-  { path:"reservations", component: ReservationComponent},
+  { path:"reservations/:id", component: ReservationComponent},
   // no layout views
   { path: "profile", component: ProfileComponent },
   { path: "landing", component: LandingComponent },

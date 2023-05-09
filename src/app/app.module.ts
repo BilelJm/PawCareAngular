@@ -58,6 +58,7 @@ import { UpdateResComponent } from './views/admin/hotel-reservation/update-res/u
 import { HotelhomeComponent } from './views/hotel-reservation/hotelhome/hotelhome.component';
 import { HoteldetailsComponent } from './views/hotel-reservation/hoteldetails/hoteldetails.component';
 import { ReservationComponent } from './views/hotel-reservation/reservation/reservation.component';
+import { StatisticComponent } from './views/admin/hotel-reservation/statistic/statistic.component';
 
 @NgModule({
   declarations: [
@@ -104,6 +105,7 @@ import { ReservationComponent } from './views/hotel-reservation/reservation/rese
     HotelhomeComponent,
     HoteldetailsComponent,
     ReservationComponent,
+    StatisticComponent,
     
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],

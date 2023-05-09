@@ -27,6 +27,10 @@ export class HoteldetailsComponent implements OnInit {
     this.router.navigate(['reservations']);
   }
 
+  Reserva(id: number){
+    this.router.navigate(['reservations/',id]);
+  }
+
   
 
 }
