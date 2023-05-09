@@ -30,8 +30,18 @@ import { ListPetsComponent } from "./views/apt/front/pet/list-pets/list-pets.com
 import { AddPetComponent } from "./views/apt/front/pet/add-pet/add-pet.component";
 import { UpdatePetComponent } from "./views/apt/front/pet/update-pet/update-pet.component";
 import { UserListComponent } from "./views/admin/users/user-list/user-list.component";
+import { AdoptionListComponent } from "./views/admin/adop back/Adoption/adoption-list/adoption-list.component";
+import { UpdateAdoptionComponent } from "./views/admin/adop back/Adoption/update-adoption/update-adoption.component";
+import { CreateAdoptionComponent } from "./views/admin/adop back/Adoption/create-adoption/create-adoption.component";
+import { TrainingListComponent } from "./views/admin/adop back/Training/training-list/training-list.component";
+import { UpdateTrainingComponent } from "./views/admin/adop back/Training/update-training/update-training.component";
+import { CreateTrainingComponent } from "./views/admin/adop back/Training/create-training/create-training.component";
+import { TrainingListFrontComponent } from "./views/adop front/Training/training-list-front/training-list-front.component";
+import { AdoptionListFrontComponent } from "./views/adop front/Adoption/adoption-list-front/adoption-list-front.component";
+import { EmailFormComponent } from "./views/adop front/Adoption/email-form/email-form.component";
 
 const routes: Routes = [
+
   // admin views
   {
     path: "admin",
@@ -53,6 +63,15 @@ const routes: Routes = [
       { path: "pet", component: PetListComponent},
       { path: "add-pet", component: PetAddComponent},
       {path:"update-pet/:id",component:PetUpdateComponent},
+
+            //adoption-training
+            { path: "adoption-list", component: AdoptionListComponent },
+            {path: 'update-Adoption/:id', component: UpdateAdoptionComponent},
+            {path: 'create-Adoption', component: CreateAdoptionComponent},
+      
+            { path: 'training-list',        component: TrainingListComponent },
+            {path: 'update-Training/:id', component: UpdateTrainingComponent},
+            {path: 'create-Training', component: CreateTrainingComponent},
 
       { path: "", redirectTo: "dashboard", pathMatch: "full" },
     ],
@@ -79,11 +98,15 @@ const routes: Routes = [
   { path: 'pet/add', component: AddPetComponent },
   {path:"pet/update-pet/:id",component:UpdatePetComponent},
 
-  
+   //training adoption front
+   { path: "training-list-front", component: TrainingListFrontComponent },
+   { path: "adoption-list-front", component: AdoptionListFrontComponent },
+ 
+   { path: "email-form", component: EmailFormComponent },
 
 
-  { path: "", component: IndexComponent },
-  { path: "**", redirectTo: "", pathMatch: "full" },
+   { path: "", component: IndexComponent },
+   { path: "**", redirectTo: "", pathMatch: "full" },
 
   
 

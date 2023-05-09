@@ -1,0 +1,81 @@
+<div
+  class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded"
+  [ngClass]="color === 'light' ? 'bg-white' : 'bg-red-900 text-white'"
+>
+  <div class="rounded-t mb-0 px-4 py-3 border-0">
+    <div class="flex flex-wrap items-center">
+      <div class="container">
+  
+
+      <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+        <h3
+          class="font-semibold text-lg"
+          [ngClass]="color === 'light' ? 'text-blueGray-700' : 'text-white'"
+        >
+        <h1>Create Adoption Request</h1>
+        <hr>
+        </h3>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="rounded-t mb-0 px-4 py-3 border-0">
+    <div class="flex flex-wrap items-center">
+      <div class="container">
+
+        
+
+<div class="col-md-6 offset-md-3">
+
+    <form class="form-horizontal" [formGroup]= "adoptionForm">
+    
+
+        <div class="form-group">
+            <div class="col-sm-12">
+              <input type="text" id="title" class="form-control" placeholder="Please specify a title" formControlName="title" [(ngModel)]= "adoption.title" style="margin-bottom: 15px;width: 100%;">
+            </div>
+          </div>
+
+        <div class="form-group">
+            <div class="col-sm-12">
+              <input type="text" id="description" class="form-control" placeholder="Please specify a description" formControlName="description" [(ngModel)]= "adoption.description" style="margin-bottom: 15px;width: 100%;">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-12">
+              <input type="text" id="location" class="form-control" placeholder="Please specify the location" formControlName="location" [(ngModel)]= "adoption.location" style="margin-bottom: 15px;width: 100%;">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-12">
+              <input type="text" id="email" class="form-control" placeholder="Please specify the email" formControlName="email" [(ngModel)]= "adoption.email" style="margin-bottom: 15px;width: 100%;">
+            </div>
+          </div>
+
+
+          <div class="form-group mb-4">
+
+            <label class="input-label">Pet</label>
+            <select class="form-select" id="pet" name="pet" formControlName="idPet"  [(ngModel)]= "adoption.IdPet" required>
+                <option *ngFor = "let pet of pets" value="{{pet.idPet}}">{{pet.name}}</option>
+            </select>
+
+        </div>
+   
+       
+
+          <div class="form-group row">
+            <div class="col-sm-10">
+              <input type="file" class="form-control-file" id="picture" (change)="onFileSelected($event)" style="margin-bottom: 15px;">
+            </div>
+          </div>
+          <div class="post-actions">
+          <button type="submit" class="btn btn-danger red-button"  (click)="onSubmit()" [disabled]="!adoptionForm.valid" style="width: 20%;" >Submit</button>
+          </div>
+  
+    </form>
