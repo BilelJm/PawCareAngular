@@ -11,6 +11,8 @@ import { Role } from '../_service/role';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
+  name: string = '';
+
 
   @Input()
   get color(): string {
@@ -43,5 +45,16 @@ export class UserListComponent implements OnInit {
       });
   }
 
+  Search() {
+    if (this.name == "") {
+      console.log(this.name);
+      this.ngOnInit();
+    } else {
+      console.log(this.name);
+      this.users = this.users.filter(res => {
+        return res.username.toLowerCase().includes(this.name.toLowerCase())
+      });
+    }
+  }
 
 }
