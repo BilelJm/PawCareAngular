@@ -1,0 +1,172 @@
+<div
+  class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded"
+  [ngClass]="color === 'light' ? 'bg-white' : 'bg-red-900 text-white'"
+>
+  <div class="rounded-t mb-0 px-4 py-3 border-0">
+    <div class="flex flex-wrap items-center">
+      <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+        <h3
+          class="font-semibold text-lg"
+          [ngClass]="color === 'light' ? 'text-blueGray-700' : 'text-white'"
+        >
+          Reservations
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="block w-full overflow-x-auto">
+    <!-- Projects table -->
+    <table class="items-center w-full bg-transparent border-collapse">
+      <thead>
+        <tr>
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            [ngClass]="
+              color === 'light'
+                ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                : 'bg-red-800 text-red-300 border-red-700'
+            "
+          >
+          ID
+          </th>
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            [ngClass]="
+              color === 'light'
+                ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                : 'bg-red-800 text-red-300 border-red-700'
+            "
+          >
+          Check In
+          </th>
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            [ngClass]="
+              color === 'light'
+                ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                : 'bg-red-800 text-red-300 border-red-700'
+            "
+          >
+            Check Out
+          </th>
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            [ngClass]="
+              color === 'light'
+                ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                : 'bg-red-800 text-red-300 border-red-700'
+            "
+          >
+            Special Requests
+          </th>
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            [ngClass]="
+              color === 'light'
+                ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                : 'bg-red-800 text-red-300 border-red-700'
+            "
+          >
+            Status
+          </th>
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            [ngClass]="
+              color === 'light'
+                ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                : 'bg-red-800 text-red-300 border-red-700'
+            ">
+            Qrcode
+          </th>
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            [ngClass]="
+              color === 'light'
+                ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                : 'bg-red-800 text-red-300 border-red-700'
+            ">
+            Actions
+          </th>
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            [ngClass]="
+              color === 'light'
+                ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                : 'bg-red-800 text-red-300 border-red-700'
+            "
+          ></th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let resva of reservations">
+          <th
+            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center"
+          >
+           
+            <span
+              class="ml-3 font-bold"
+              [ngClass]="color === 'light' ? 'text-blueGray-600' : 'text-white'"
+            >
+            {{ resva.idReservation }}
+            </span>
+          </th>
+          <td
+            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+          >
+          {{ resva.checkin }}
+          </td>
+          <td
+            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+          >{{ resva.checkout }}
+          
+          </td>
+          <td
+            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+          >
+            <div class="flex">
+              {{ resva.specialrequests}}
+            </div>
+          </td>
+          <td
+            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+          >
+            <div class="flex">
+              {{ resva.status}}
+            </div>
+          </td>
+          <td
+            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+          >
+            <div class="flex">
+              <img src="http://localhost/qr/{{resva.qrcode}}.jpg"  width="60" >
+            </div>
+          </td>
+          
+          
+          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+            <div class="flex space-x-4">
+              
+              <button 
+              (click)="updateReservation(resva.idReservation)"
+                class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button 
+              (click)="deleteReservation(resva.idReservation)"
+                class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                <i class="fas fa-trash-alt"></i>
+                
+              </button>
+            </div>
+          </td>
+          
+        </tr>
+       
+        
+        
+      </tbody>
+    </table>
+    
+  </div>
+</div>
