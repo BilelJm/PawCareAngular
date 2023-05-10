@@ -39,6 +39,16 @@ import { CreateTrainingComponent } from "./views/admin/adop back/Training/create
 import { TrainingListFrontComponent } from "./views/adop front/Training/training-list-front/training-list-front.component";
 import { AdoptionListFrontComponent } from "./views/adop front/Adoption/adoption-list-front/adoption-list-front.component";
 import { EmailFormComponent } from "./views/adop front/Adoption/email-form/email-form.component";
+import { HotelComponent } from "./views/admin/hotel-reservation/hotel/hotel.component";
+import { CreateHotelComponent } from "./views/admin/hotel-reservation/hotel-add/create-hotel/create-hotel.component";
+import { HotelUpdateComponent } from "./views/admin/hotel-reservation/hotel-update/hotel-update.component";
+import { ResListComponent } from "./views/admin/hotel-reservation/res-list/res-list.component";
+import { CreateResComponent } from "./views/admin/hotel-reservation/create-res/create-res.component";
+import { UpdateResComponent } from "./views/admin/hotel-reservation/update-res/update-res.component";
+import { StatisticComponent } from "./views/admin/hotel-reservation/statistic/statistic.component";
+import { HotelhomeComponent } from "./views/hotel-reservation/hotelhome/hotelhome.component";
+import { HoteldetailsComponent } from "./views/hotel-reservation/hoteldetails/hoteldetails.component";
+import { ReservationComponent } from "./views/hotel-reservation/reservation/reservation.component";
 
 const routes: Routes = [
 
@@ -73,6 +83,14 @@ const routes: Routes = [
             {path: 'update-Training/:id', component: UpdateTrainingComponent},
             {path: 'create-Training', component: CreateTrainingComponent},
 
+            { path: "hotel-res",component: HotelComponent},
+      { path: "hotel-add",component: CreateHotelComponent},
+      { path: "hotel-update/:id",component: HotelUpdateComponent},
+      { path: "res-list",component: ResListComponent},
+      { path: "res-create", component: CreateResComponent},
+      { path: "res-update/:id", component: UpdateResComponent},
+      { path: "statistics", component: StatisticComponent},
+
       { path: "", redirectTo: "dashboard", pathMatch: "full" },
     ],
   },
@@ -103,6 +121,13 @@ const routes: Routes = [
    { path: "adoption-list-front", component: AdoptionListFrontComponent },
  
    { path: "email-form", component: EmailFormComponent },
+
+   // hotels front
+  { path:"hotels", component: HotelhomeComponent},
+  { path:"hotels/detail/:id", component: HoteldetailsComponent},
+
+  // reservations front
+  { path:"reservations/:id", component: ReservationComponent},
 
 
    { path: "", component: IndexComponent },

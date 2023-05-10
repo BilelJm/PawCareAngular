@@ -85,6 +85,16 @@ import { AdoptionListComponent } from "./views/admin/adop back/Adoption/adoption
 import { TableDropdownTrainingComponent } from "./components/dropdowns/table-dropdown-training/table-dropdown-training";
 import { TableDropdownAdoptionComponent } from "./components/dropdowns/table-dropdown-adoption/table-dropdown-adoption";
 import { Router, RouterModule } from "@angular/router";
+import { HotelComponent } from "./views/admin/hotel-reservation/hotel/hotel.component";
+import { CreateHotelComponent } from "./views/admin/hotel-reservation/hotel-add/create-hotel/create-hotel.component";
+import { HotelUpdateComponent } from "./views/admin/hotel-reservation/hotel-update/hotel-update.component";
+import { ResListComponent } from "./views/admin/hotel-reservation/res-list/res-list.component";
+import { CreateResComponent } from "./views/admin/hotel-reservation/create-res/create-res.component";
+import { UpdateResComponent } from "./views/admin/hotel-reservation/update-res/update-res.component";
+import { StatisticComponent } from "./views/admin/hotel-reservation/statistic/statistic.component";
+import { HotelhomeComponent } from "./views/hotel-reservation/hotelhome/hotelhome.component";
+import { HoteldetailsComponent } from "./views/hotel-reservation/hoteldetails/hoteldetails.component";
+import { ReservationComponent } from "./views/hotel-reservation/reservation/reservation.component";
 
 registerLicense('"Mgo+DSMBaFt+QHFqVkNrWU5FdUBAXWFKblJ0T2ZcdV15ZDU7a15RRnVfRlxgSH1Wd0VqUH5ccA==;Mgo+DSMBPh8sVXJ1S0d+X1RPc0BDXnxLflF1VWJbdVt1flZPcDwsT3RfQF5jTX9Qd0ZmWH9XeXZQRg==;ORg4AjUWIQA/Gnt2VFhhQlJBfVpdXGBWfFN0RnNYfVR1cV9FaUwxOX1dQl9gSXpSdURgXH5eeX1WTmA=;MTcxMzc5NkAzMjMxMmUzMTJlMzMzNW8wQlZ0cm9QcERrT3NTcFh6aXFyRDhRWDB1Rk8yL0tGTC9xVTBlWTF3TG89;MTcxMzc5N0AzMjMxMmUzMTJlMzMzNWJaL2xaQlRWZDNlM3N3c25uMzFxSGo3Y1BUaThoRDY2M1QxMFlCSWIwWTA9;NRAiBiAaIQQuGjN/V0d+XU9Hc1RHQmJKYVF2R2BJflx6cVBMY1VBJAtUQF1hSn5Xd0ZiWnpfcH1cT2lc;MTcxMzc5OUAzMjMxMmUzMTJlMzMzNVZsS2tXbEhZUmRScjVObEVRWGRmUXNheS84cWtTYlVabzRrSHEzRENtb0E9;MTcxMzgwMEAzMjMxMmUzMTJlMzMzNUVKRlowNG5lTE1jK2JrcEFzZW9DNDdJaTZYRSsxdkRsWmZUTjdOMFlhajg9;Mgo+DSMBMAY9C3t2VFhhQlJBfVpdXGBWfFN0RnNYfVR1cV9FaUwxOX1dQl9gSXpSdURgXH5fcHRTQmA=;MTcxMzgwMkAzMjMxMmUzMTJlMzMzNWd2Y0s5UExMVTR3bll1bWt3djhuTmF6Zk1KNWd5TmRjWmxBN0s0VytiYW89;MTcxMzgwM0AzMjMxMmUzMTJlMzMzNWJYYmJGVjY0MEhYMWY0cGhvQTJhdmhKOEpKY2lyT29jZFFMcE9YdTZaV1k9;MTcxMzgwNEAzMjMxMmUzMTJlMzMzNVZsS2tXbEhZUmRScjVObEVRWGRmUXNheS84cWtTYlVabzRrSHEzRENtb0E9');
 
@@ -156,7 +166,19 @@ registerLicense('"Mgo+DSMBaFt+QHFqVkNrWU5FdUBAXWFKblJ0T2ZcdV15ZDU7a15RRnVfRlxgSH
     EmailFormComponent,
 
     TableDropdownTrainingComponent,
-    TableDropdownAdoptionComponent
+    TableDropdownAdoptionComponent,
+
+    HotelComponent,
+    CreateHotelComponent,
+    HotelUpdateComponent,
+    ResListComponent,
+    CreateResComponent,
+    UpdateResComponent,
+    StatisticComponent,
+
+    HotelhomeComponent,
+    HoteldetailsComponent,
+    ReservationComponent
   ],
   
   imports: [BrowserModule, AppRoutingModule, ScheduleModule ,RecurrenceEditorModule,HttpClientModule,
