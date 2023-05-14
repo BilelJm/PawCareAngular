@@ -24,7 +24,14 @@ export class OrderService {
 
   getAccessoriesByOrderId(orderId: number): Observable<Accessory[]> {
     const url = `${this.baseUrl}/${orderId}/accessories`;
-    return this.http.get<Accessory[]>(url);
+
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiaWxlbGptIiwiaWF0IjoxNjgzNTc0NjkwLCJleHAiOjE2ODM2NjEwOTB9.M-CRNoLxEXLmL03SOFTiTGEygv2GW04cB8LVuBmIrFE"'
+    });
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.append('Accept', 'application/json');
+    
+    return this.http.get<Accessory[]>(url, {headers:headers});
   }
 
   getUserByOrderId(orderId: number): Observable<User> {

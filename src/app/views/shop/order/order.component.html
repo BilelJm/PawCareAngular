@@ -83,7 +83,7 @@ You have successfully purchased {{accessories.length}} items
     <div class="container mx-auto px-4" *ngFor="let accessory of accessories">
       <div class="items-center flex flex-wrap">
         <div class="w-full md:w-4/12 ml-auto mr-auto px-4">
-            <img *ngIf="accessory.image" [src]="'http://localhost:8080/' + accessory.image" alt="Accessory Image" width="200" height="200">
+            <img *ngIf="accessory.image" [src]="'http://localhost/img/' + accessory.image" alt="Accessory Image" width="200" height="200">
 
         </div>
         <div class="w-full md:w-5/12 ml-auto mr-auto px-4">

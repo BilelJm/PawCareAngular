@@ -6,7 +6,7 @@ import { User } from '../models/user';
 import { CartService } from '../services/cart.service';
 import {ToastrService} from "ngx-toastr";
 import {Router} from "@angular/router";
-
+//import { StorageService } from 'src/app/views/auth/_services/storage.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -20,7 +20,7 @@ export class CartComponent implements OnInit {
   order: Order = new Order();
   user!: User;
 
-  constructor(private cartService: CartService,private toastr : ToastrService,private router:Router){}
+  constructor(private cartService: CartService,private toastr : ToastrService,private router:Router){}  //private storageService:StorageService,
 
   ngOnInit():void {
 
@@ -82,10 +82,11 @@ export class CartComponent implements OnInit {
   confirmOrder() {
     const order = new Order();
     order.user = this.user;
-    console.log('idUser' + (this.user ? this.user.id : ' user undefined'))
+    console.log('idUser' + (this.user ? this.user.id : ' user undefined')) //
 
     order.cart = this.cart;
-    this.cartService.createOrderFromCart(this.cart.idCart, this.user.id).subscribe(
+    this.cartService.createOrderFromCart(this.cart.idCart, this.user.id).subscribe( //this.storageService.getUser().id
+
       response => {
         this.toastr.success('Order created successfully');
         console.log(response);

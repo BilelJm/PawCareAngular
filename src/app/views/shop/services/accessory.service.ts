@@ -3,7 +3,7 @@ import {HttpClient,HttpParams} from "@angular/common/http";
 import {Accessory} from "../models/accessory";
 import {Observable} from "rxjs";
 import { map } from 'rxjs/operators';
-
+import { HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -20,8 +20,19 @@ export class AccessoryService {
       .set('size', String(size))
       .set('sortField', sortField)
       .set('sortDir', sortDir);
-    return this.http.get<any>('http://localhost:8080/accessory/listaccessories', { params });
+
+
+const headers = new HttpHeaders({
+  'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiaWxlbGptIiwiaWF0IjoxNjgzNTc0NjkwLCJleHAiOjE2ODM2NjEwOTB9.M-CRNoLxEXLmL03SOFTiTGEygv2GW04cB8LVuBmIrFE"'
+});
+headers.append('Content-Type', 'multipart/form-data');
+headers.append('Accept', 'application/json');
+
+    return this.http.get<any>('http://localhost:8080/accessory/listaccessories', { params ,headers:headers});
   }
+
+
+  
 
   public GetAccessoryById(idAccessory:number){
 
@@ -57,10 +68,12 @@ export class AccessoryService {
     formData.append('price', accessory.price.toString());
     formData.append('description', accessory.description);
     formData.append('image', image);
-
+    
     return this.http.post<any>('http://localhost:8080/accessory/addAccessoryUpload1', formData).pipe(
       map(response => response.imageUrl)
     );
+
+    
   }
 
   updateAccessory(idAccessory: number, data: any, image: File): Observable<any> {

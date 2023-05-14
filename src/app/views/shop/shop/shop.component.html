@@ -67,7 +67,7 @@
       </select>
       <br>
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search by name" [(ngModel)]="searchName" name="searchDescription">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search by name" [(ngModel)]="searchName" name="searchName">
        <br> <input class="form-control mr-sm-2" type="number" placeholder="Search by price" [(ngModel)]="searchPrice" name="searchPrice">
         <br>
         <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="searchAccessories()">Search</button>
@@ -111,8 +111,8 @@
                   <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                     <div class="px-4 py-5 flex-auto">
                       <div class="flex items-center justify-center mb-4">
-                        <img *ngIf="accessory.image" [src]="'http://localhost:8080/' + accessory.image" alt="Accessory Image" width="200" height="200" class="mr-4">
-                        <div>
+                        <img *ngIf="accessory.image" [src]="'http://localhost/img/' + accessory.image" alt="Accessory Image" width="200" height="200" class="mr-4">
+                        <div> 
                           <h6 class="text-xl font-semibold">{{ accessory.name }}</h6>
                           <p class="mt-2 mb-1 text-blueGray-500">{{ accessory.description }}</p>
                           <p class="text-blueGray-500">{{ accessory.price }}DT</p>

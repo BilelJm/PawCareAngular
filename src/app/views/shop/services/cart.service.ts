@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Cart} from "../models/cart";
 import {Observable} from "rxjs";
 import {Order} from "../models/order";
+import { HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -26,7 +27,14 @@ export class CartService {
   }
 
   public GetCartById(idCart:number): Observable<Cart> {
-    return this.http.get<Cart>(`${this.baseUrl}cart/getCartById/${idCart}`);
+
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiaWxlbGptIiwiaWF0IjoxNjgzNTc0NjkwLCJleHAiOjE2ODM2NjEwOTB9.M-CRNoLxEXLmL03SOFTiTGEygv2GW04cB8LVuBmIrFE"'
+    });
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.append('Accept', 'application/json');
+    
+    return this.http.get<Cart>(`${this.baseUrl}cart/getCartById/${idCart}`,{headers:headers});
 
   }
   emptyCart(cartId: number): Observable<any> {
